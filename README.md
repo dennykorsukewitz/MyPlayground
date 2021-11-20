@@ -2,6 +2,7 @@
 
 ![~Znuny Releases~](/.resources/ZnunyReleases-md-1.svg)
 
+
 ```mermaid
 gantt
     title Znuny
