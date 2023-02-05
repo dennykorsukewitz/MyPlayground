@@ -3,7 +3,7 @@ repository:
   name: playground
 
   # A short description of the repository that will show up on GitHub
-  description: playground is a extension that helps you to make Znuny development less painful.
+  description: playground is just for github testing.
 
   # A URL with more information about the repository
   homepage: https://dennykorsukewitz.github.io/playground/
