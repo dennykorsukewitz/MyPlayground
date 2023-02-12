@@ -1,24 +1,45 @@
-# Playground Repo
+# Chirpy Starter [![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)](https://rubygems.org/gems/jekyll-theme-chirpy) [![GitHub license](https://img.shields.io/github/license/cotes2020/chirpy-starter.svg?color=blue)][mit]
 
-- [ ] lint all
-  - [x] DK4
-  - [x] DK4OTRS-UBInventory
-  - [x] MRBS-OTRS
-  - [x] DK4Znuny-QuickDelete
-  - [ ] DK4Znuny-VisualStudioCode
-  - [ ] DK4Znuny-Guide
-- [ ] all green
-- [ ] Triggering GitHub Actions across different repositories
-- [ ] publish new repo
+When installing the [**Chirpy**][chirpy] theme through [RubyGems.org][gem], Jekyll can only read files in the folders `/_data`, `/_layouts`, `/_includes`, `/_sass` and `/assets`, as well as a small part of options of the `/_config.yml` file from the theme's gem. If you have ever installed this theme gem, you can use the command `bundle info --path jekyll-theme-chirpy` to locate these files.
 
-# DK4Znuny-VisualStudioCode
-- [ ] LINT
-- [ ] GH Pages
-- [ ] Public
-- [ ] Public extension https://code.visualstudio.com/api/working-with-extensions/publishing-extension
+The Jekyll team claims that this is to leave the ball in the user’s court, but this also results in users not being able to enjoy the out-of-the-box experience when using feature-rich themes.
 
-![Custom badge](https://badges.genua.fr/endpoint?url=https%3A%2F%2Fgist.githubusercontent.com%2Fdennykorsukewitz%2F620f530386aae95ce25703b8644d16af%2Fraw%2F99336fe0b77b26659a04d9de51b4efbf376dda51%2Fplayground%3Asnippets.json)
+To fully use all the features of **Chirpy**, you need to copy the other critical files from the theme's gem to your Jekyll site. The following is a list of targets:
 
-![Custom badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fgist.githubusercontent.com%2Fdennykorsukewitz%2F620f530386aae95ce25703b8644d16af%2Fraw%2F99336fe0b77b26659a04d9de51b4efbf376dda51%2Fplayground%3Asnippets.json)
+```shell
+.
+├── _config.yml
+├── _plugins
+├── _tabs
+└── index.html
+```
 
-![Snippet Counter](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/dennykorsukewitz/cbc0adcaf54dca1a051929be61083a60/raw/d361549298e222a23901f0a956cca10901a4508a/DK4Znuny-VisualStudioCode:snippets.json)
+To save you time, and also in case you lose some files while copying, we extract those files/configurations of the latest version of the **Chirpy** theme and the [CD][CD] workflow to here, so that you can start writing in minutes.
+
+## Prerequisites
+
+Follow the instructions in the [Jekyll Docs](https://jekyllrb.com/docs/installation/) to complete the installation of `Ruby`, `RubyGems`, `Jekyll` and `Bundler`.
+
+## Installation
+
+[**Use this template**][use-template] to generate a brand new repository and name it `<GH_USERNAME>.github.io`, where `GH_USERNAME` represents your GitHub username.
+
+Then clone it to your local machine and run:
+
+```
+$ bundle
+```
+
+## Usage
+
+Please see the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy#documentation).
+
+## License
+
+This work is published under [MIT][mit] License.
+
+[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
+[chirpy]: https://github.com/cotes2020/jekyll-theme-chirpy/
+[use-template]: https://github.com/cotes2020/chirpy-starter/generate
+[CD]: https://en.wikipedia.org/wiki/Continuous_deployment
+[mit]: https://github.com/cotes2020/chirpy-starter/blob/master/LICENSE
