@@ -5,10 +5,10 @@ on:
       - main
       - dev
       - dev-update
-    paths-ignore:
-      - .gitignore
-      - README.md
-      - LICENSE
+    # paths-ignore:
+    #   - .gitignore
+    #   - README.md
+    #   - LICENSE
 
   workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
 
