@@ -30,13 +30,13 @@ jobs:
         run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --output=images/Screenshot-Room.png
 
       - name: Screenshot Furniture
-        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --click-element='#furnitureButton'  --output=images/Screenshot-Furniture.png
+        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --click-element='#furnitureButton' --output=images/Screenshot-Furniture.png
 
       - name: Screenshot Floorplan
-        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --click-element='#floorplanButton'  --output=images/Screenshot-Floorplan.png
+        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --click-element='#floorplanButton' --output=images/Screenshot-Floorplan.png
 
-      - name: Screenshot Module
-        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --module=load-example.js --click-element='#floorplanButton'  --output=images/Screenshot-Floorplan.png
+      - name: Screenshot Presentation
+        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --module=load-example.js --click-element='#presentationButton' --output=images/Screenshot-Presentation.png
 
 
 
