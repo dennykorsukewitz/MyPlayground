@@ -27,16 +27,16 @@ jobs:
         run: npm install --global capture-website-cli
 
       - name: Screenshot Room
-        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --output=images/Screenshot-Room.png
+        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=5 --output=images/Screenshot-Room.png
 
       - name: Screenshot Furniture
-        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --output=images/Screenshot-Furniture.png --click-element='#furnitureButton'
+        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=5 --output=images/Screenshot-Furniture.png --click-element='#furnitureButton'
 
       - name: Screenshot Floorplan
-        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --output=images/Screenshot-Floorplan.png --click-element='#floorplanButton'
+        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=5 --output=images/Screenshot-Floorplan.png --click-element='#floorplanButton'
 
       - name: Screenshot Presentation
-        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --output=images/Screenshot-Presentation.png  --click-element='#presentationButton'
+        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=5 --output=images/Screenshot-Presentation.png  --click-element='#presentationButton'
 
       # - name: Screenshot Presentation
       #   run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --output=images/Screenshot-Presentation.png  --click-element='#presentationButton' --module=load-example.js
