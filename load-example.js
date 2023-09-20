@@ -2,8 +2,8 @@
 window.addEventListener("load", (event) => {
 
     const url = 'https://raw.githubusercontent.com/karldaeubel/PenAndPaperFloorplanner/master/examples/Example.json';
-    gitHubExample = new XMLHttpRequest(); // object
-    gitHubExample.onload = function(data) {
+    gitHubExampleRequest = new XMLHttpRequest(); // object
+    gitHubExampleRequest.onload = function(data) {
 
         console.log(data.currentTarget.response)
         const content = data.currentTarget.response;
@@ -86,8 +86,7 @@ window.addEventListener("load", (event) => {
         setState();
         drawMain();
     }
-    gitHubExample.open("GET", url);
-    gitHubExample.send();
-
+    gitHubExampleRequest.open("GET", url);
+    gitHubExampleRequest.send();
 
 });
