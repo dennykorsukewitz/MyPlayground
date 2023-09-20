@@ -36,10 +36,10 @@ jobs:
         run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=2 --output=images/Screenshot-Floorplan.png --click-element='#floorplanButton'
 
       - name: Screenshot Presentation
-        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=2 --launch-options='{"headless": "new"}' --output=images/Screenshot-Presentation.png --click-element='#presentationButton'
+        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=2 --output=images/Screenshot-Presentation.png --click-element='#presentationButton'
 
       - name: Screenshot Presentation load-example
-        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=2 --launch-options='{"headless": "new"}' --output=images/Screenshot-Presentation-load-example-2.png  --click-element='#presentationButton' --script=load-example.js
+        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=2 --output=images/Screenshot-Presentation-load-example-2.png  --click-element='#presentationButton' --script=load-example.js
 
 
 
