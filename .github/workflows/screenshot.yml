@@ -38,8 +38,8 @@ jobs:
       - name: Screenshot Presentation
         run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=5 --output=images/Screenshot-Presentation.png  --click-element='#presentationButton'
 
-      # - name: Screenshot Presentation
-      #   run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --output=images/Screenshot-Presentation.png  --click-element='#presentationButton' --module=load-example.js
+      - name: Screenshot Presentation
+        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=5 --output=images/Screenshot-Presentation.png  --click-element='#presentationButton' --module=load-example.js
 
 
 
