@@ -39,7 +39,7 @@ jobs:
         run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=2 --wait-for-element="#edgeLabelCheckbox" --output=images/Screenshot-Presentation.png --click-element='#presentationButton'
 
       - name: Screenshot Presentation load-example
-        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=2 --wait-for-element="#edgeLabelCheckbox" --output=images/Screenshot-Presentation-load-example.png  --click-element='#presentationButton' --module=js/example.js --debug
+        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=2 --wait-for-element="#edgeLabelCheckbox" --output=images/Screenshot-Presentation-load-example.png  --click-element='#presentationButton' --module=js/example.js
 
       - name: Add and Commit
         uses: EndBug/add-and-commit@v9
