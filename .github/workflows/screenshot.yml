@@ -38,6 +38,9 @@ jobs:
       # - name: Screenshot Presentation
       #   run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=2 --full-page --wait-for-element="#edgeLabelCheckbox" --output=images/Screenshot-Presentation.png --click-element='#presentationButton'
 
+      - uses: browser-actions/setup-chrome@v1
+      - run: chrome --version
+
       - name: Screenshot Presentation load-example 1
         run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=2 --full-page --wait-for-element="#edgeLabelCheckbox" --output=images/Screenshot-Presentation-load-example-1.png  --click-element='#presentationButton' --module=js/example.js --width="1920" --height="1080"
 
