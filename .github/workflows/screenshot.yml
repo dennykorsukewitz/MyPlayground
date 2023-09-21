@@ -45,7 +45,7 @@ jobs:
         run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=2 --full-page --wait-for-element="#edgeLabelCheckbox" --output=images/Screenshot-Presentation-load-example-1.png  --click-element='#presentationButton' --module=js/example.js --width="1920" --height="1080"
 
       - name: Screenshot Presentation load-example 2
-        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=2 --full-page --wait-for-element="#edgeLabelCheckbox" --output=images/Screenshot-Presentation-load-example-2.png  --click-element='#presentationButton' --module=js/example.js --launch-options='{"headless":"new","args":["--start-maximized", "--no-sandbox", "--disable-setuid-sandbox"]}' --width="1920" --height="1080"
+        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=2 --full-page --wait-for-element="#edgeLabelCheckbox" --output=images/Screenshot-Presentation-load-example-2.png  --click-element='#presentationButton' --module=js/example.js --launch-options='{"headless":"false","args":["--start-maximized", "--no-sandbox", "--disable-setuid-sandbox"]}' --width="1920" --height="1080"
 
       - name: Add and Commit
         uses: EndBug/add-and-commit@v9
