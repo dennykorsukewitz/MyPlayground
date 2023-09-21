@@ -1,8 +1,5 @@
-
-window.addEventListener("load", (event) => {
-
-    const url = 'https://raw.githubusercontent.com/karldaeubel/PenAndPaperFloorplanner/master/examples/Example.json';
-    gitHubExampleRequest = new XMLHttpRequest(); // object
+function loadExample(url) {
+    let gitHubExampleRequest = new XMLHttpRequest();
     gitHubExampleRequest.onload = function(data) {
 
         console.log(data.currentTarget.response)
@@ -10,8 +7,7 @@ window.addEventListener("load", (event) => {
         let floorPlanner;
         try {
             floorPlanner = JSON.parse(content);
-        }
-        catch (err) {
+        } catch (err) {
             alert(getText(loc.fileIO.errorAtFile) + " " + file.name + ".\n\n" + getText(loc.fileIO.errorMessage) + "\n" + err);
             console.error(err);
             return;
@@ -47,20 +43,23 @@ window.addEventListener("load", (event) => {
         if (floorPlanner.furniture) {
             for (const fur of floorPlanner.furniture) {
                 switch (fur.mov.type) {
-                    case MovableType.Circle: {
-                        furniture.push(loadCircle(fur));
-                        break;
-                    }
-                    case MovableType.Ellipse: {
-                        furniture.push(loadEllipse(fur));
-                        break;
-                    }
+                    case MovableType.Circle:
+                        {
+                            furniture.push(loadCircle(fur));
+                            break;
+                        }
+                    case MovableType.Ellipse:
+                        {
+                            furniture.push(loadEllipse(fur));
+                            break;
+                        }
                     case MovableType.Rectangle:
                     case MovableType.L:
-                    case MovableType.U: {
-                        furniture.push(loadRectangle(fur));
-                        break;
-                    }
+                    case MovableType.U:
+                        {
+                            furniture.push(loadRectangle(fur));
+                            break;
+                        }
                 }
             }
         }
@@ -88,5 +87,7 @@ window.addEventListener("load", (event) => {
     }
     gitHubExampleRequest.open("GET", url);
     gitHubExampleRequest.send();
+}
 
-});
+const url = 'https://raw.githubusercontent.com/karldaeubel/PenAndPaperFloorplanner/master/examples/Example.json';
+loadExample(url);

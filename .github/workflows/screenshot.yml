@@ -26,22 +26,20 @@ jobs:
       - name: Install capture-website-cli
         run: npm install --global capture-website-cli
 
+      - name: Screenshot Floorplan
+        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=2 --wait-for-element="#loadFloorplanButton" --output=images/Screenshot-Floorplan.png --click-element='#floorplanButton'
+
       - name: Screenshot Room
-        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=2 --output=images/Screenshot-Room.png
+        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=2 --wait-for-element="#addLabelButton" --output=images/Screenshot-Room.png
 
       - name: Screenshot Furniture
-        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=2 --output=images/Screenshot-Furniture.png --click-element='#furnitureButton'
-
-      - name: Screenshot Floorplan
-        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=2 --output=images/Screenshot-Floorplan.png --click-element='#floorplanButton'
+        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=2 --wait-for-element="#addFurnitureButton" --output=images/Screenshot-Furniture.png --click-element='#furnitureButton'
 
       - name: Screenshot Presentation
-        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=2 --output=images/Screenshot-Presentation.png --click-element='#presentationButton'
+        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=2 --wait-for-element="#edgeLabelCheckbox" --output=images/Screenshot-Presentation.png --click-element='#presentationButton'
 
       - name: Screenshot Presentation load-example
-        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=2 --output=images/Screenshot-Presentation-load-example-2.png  --click-element='#presentationButton' --script=https://raw.githubusercontent.com/dennykorsukewitz/playground/dev/load-example.js
-
-
+        run: capture-website https://karldaeubel.github.io/PenAndPaperFloorplanner/ --overwrite --delay=2 --wait-for-element="#edgeLabelCheckbox" --output=images/Screenshot-Presentation-load-example.png  --click-element='#presentationButton' --module=js/example.js --debug
 
       - name: Add and Commit
         uses: EndBug/add-and-commit@v9
