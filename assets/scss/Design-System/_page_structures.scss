@@ -1,0 +1,31 @@
+.page-structures {
+
+    .LayoutFixedSidebar.ActionsSideBar {
+        padding: var(--padding-xxl);
+        gap: 1px;
+    }
+
+    .ds-section {
+        position: relative;
+        border: 2px dashed $black-1 !important;
+        @include border-radius(5px);
+        background-color: $white;
+        min-height: 200px;
+        padding: var(--padding-xxl) !important;
+    }
+
+    .structure-label {
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        display: flex;
+        flex-direction: column;
+        @include border-radius(5px);
+        color: $black-1;
+        background-color: $smoky-grey;
+        border: 1px solid $light-grey;
+        padding: 2px;
+        line-height: 100%;
+        font-size: 13px;
+    }
+}

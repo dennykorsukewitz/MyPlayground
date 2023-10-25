@@ -1,0 +1,37 @@
+/**
+* @subsection  |  Reset
+*/
+
+li {
+    list-style: none;
+}
+
+a, a:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.align-right-auto {
+    margin-left: auto !important;
+}
+
+body a .fa.fa-caret-right {
+    display: none !important;
+}
+
+td i,
+td a > i.fa,
+td a > svg {
+    color: var(--gray-dark);
+    font-size: var(--font-size-lg);
+    margin-right: 3px;
+}
+
+.InvisibleText {
+    width: 0;
+    height: 0;
+    display: inline-block;
+    text-indent: -9999px;
+    white-space: nowrap;
+    position: absolute !important;
+}

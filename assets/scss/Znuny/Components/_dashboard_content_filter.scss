@@ -1,0 +1,40 @@
+/**
+ * @subsection  |  Dashboard Content Filter
+ */
+
+.DashboardWidgetExpand ul {
+    display: flex;
+    overflow-x: auto;
+}
+
+.DashboardWidgetExpand ul li:first-child {
+    margin-left: 0;
+}
+
+.DashboardWidgetExpand ul li {
+    display: flex;
+    list-style: none;
+    padding: none;
+    height: auto;
+    white-space: nowrap;
+    margin-left: 20px;
+}
+
+.DashboardWidgetExpand ul li a {
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--border-color);
+    padding: var(--size-8) var(--size-20);
+    color: var(--main-font-color);
+    background: transparent;
+    transition: var(--main-transition);
+    font-size: var(--font-size-sm);
+    font-weight: var(--semi-bold);
+    cursor: pointer;
+}
+
+.DashboardWidgetExpand ul li a.active,
+.DashboardWidgetExpand ul li a.active:hover {
+    border: 1px solid var(--primary-color);
+    background: var(--primary-color-rgb);
+    pointer-events: none;
+}

@@ -1,0 +1,227 @@
+/**
+* @subsection  |  Pagination
+*/
+
+.Pagination {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
+    margin-right: 0;
+    font-size: var(--main-font-size);
+    padding: var(--padding-sm) var(--padding-xl);
+    background: var(--white);
+}
+
+.Content > .Pagination:first-child {
+    border-top: 0;
+}
+
+.Pagination:empty {
+    padding: 0;
+    display: none;
+}
+
+.SidebarColumn .Pagination {
+    background: transparent;
+    border-top: 0;
+}
+
+.Pagination:empty,
+.Pagination:is(:empty),
+.Pagination:has(.page-links:empty) {
+    padding: 0;
+    display: none;
+}
+
+.Pagination ul {
+    display: flex;
+    align-items: baseline;
+    flex-flow: row;
+    gap: var(--padding-md);
+}
+
+.Pagination ul li {
+    display: flex;
+    position: relative;
+    height: 26px;
+}
+
+.Pagination ul li:first-child:after {
+    width: 0;
+    height: 0;
+    background-color: transparent;
+}
+
+.Pagination li, 
+.Pagination li span {
+    align-self: center;
+    font-size: var(--font-size-sm);
+    color: var(--gray-semi-dark);
+}
+
+.Pagination ul li a:first-child {
+    margin-left: 0px;
+    position: relative;
+}
+
+.Pagination a {
+    color: var(--gray-semi-dark);
+}
+
+.Pagination .page-links a:hover {
+    border-radius: var(--border-radius-xs);
+    border-color: var(--border-color);
+}
+.Pagination .page-links {
+    display: flex;
+    flex-flow: row;
+}
+
+.Pagination .page-links a {
+    display: flex;
+    position: relative;
+    width: 26px;
+    height: 26px;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius-xs);
+    border: var(--border-width) var(--border-solid) transparent;
+    transition: var(--main-transition);
+}
+
+.Pagination .page-links a:first-child {
+    margin-left: var(--margin-xs);
+}
+
+.Pagination .page-links a:first-child::after {
+    display: inline-block;
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 26px;
+    top: 0;
+    background-color: var(--gray-light);
+    left: -7px;
+}
+
+
+.Pagination .page-links a:hover {
+    background-color: var(--gray-light);
+    color: var(--gray-semi-dark);
+}
+
+.Pagination.page-links a:hover {
+    background: rgba(1, 1, 1, 0.08);
+}
+
+.Pagination .page-links a.pagination-travel-l,
+.Pagination .page-links a.pagination-travel-r,
+.Pagination .page-links a.pagination-travel-one-l,
+.Pagination .page-links a.pagination-travel-one-r {
+    font-size: var(--main-font-size);
+    border: var(--border-width) var(--border-solid) var(--border-color);
+}
+
+.Pagination .page-links a.pagination-travel-l,
+.Pagination .page-links a.pagination-travel-one-l {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0;
+}
+
+.Pagination .page-links a.pagination-travel-r,
+.Pagination .page-links a.pagination-travel-one-r {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.Pagination .page-links a.pagination-travel-one-l {
+    margin-left: var(--padding-sm);
+}
+
+.Pagination .page-links > a.pagination-travel-one-r {
+    margin-right: var(--padding-sm);
+}
+
+
+.RTL .Pagination {
+    float: left;
+}
+
+form.Pagination > * {
+    float: left;
+}
+
+.RTL .Pagination > * {
+    float: right;
+}
+
+.Pagination > span {
+    margin-top: 3px;
+}
+
+form.Pagination a {
+    height: 24px;
+    width: 24px;
+    display: block;
+}
+
+.Pagination a.Selected {
+    font-weight: bold;
+    color: var(--primary-color);
+    pointer-events: none;
+}
+
+.Pagination a.Selected:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+.Pagination .PaginationLimit {
+    color: var(--alert-error-icon-color);
+}
+
+.Pagination a span {
+    margin: 7px 6px;
+    height: 9px;
+    width: 11px;
+    text-indent: -9999px;
+    background: url(../img/arrows.png) no-repeat;
+    display: block;
+}
+
+/*.Pagination .ArrowLeft span {
+    background-position: left top;
+}
+
+.RTL .Pagination .ArrowLeft span {
+    background-position: right top;
+}
+
+.Pagination .ArrowRight span {
+    background-position: right top;
+}
+
+.RTL .Pagination .ArrowRight span {
+    background-position: left top;
+}*/
+
+.Pagination input {
+    width: 16px;
+    margin-right: 2px;
+    padding: 1px 3px;
+    font-size: 11px;
+    font-family: inherit;
+    text-align: right;
+}
+
+@media only screen and (max-width: 1024px) {
+
+    .WidgetSimple span.Pagination {
+        display: none;
+    }
+
+    .WidgetSimple span.Pagination.AsBlock {
+        display: flex;
+    }
+}

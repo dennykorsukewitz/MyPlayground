@@ -1,0 +1,244 @@
+/**
+* @subsection  |  Sidebar Widget General
+*/
+
+.Dialog.modal-md {
+    max-width: 750px;
+    width: calc(100% - var(--margin-xl));
+    min-width: 150px;
+    overflow: hidden;
+    background: var(--white);
+    border-radius: var(--border-radius-sm);
+    border: var(--border-width) var(--border-solid) var(--border-color);
+}
+
+/*
+* Header
+*/
+
+.Dialog > .Header {
+    cursor: move;
+    display: flex;
+    flex-flow: row;
+    flex-direction: row;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    height: auto;
+    background: var(--main-bg-color);
+    border-bottom: var(--border-width) var(--border-solid) var(--border-color);
+    padding: var(--padding-md) var(--padding-lg);
+}
+
+.Dialog > .Header h1 {
+    margin: 0;
+    padding: 0;
+    color: var(--black);
+    font-weight: var(--semi-bold);
+    font-size: var(--font-size-md);
+}
+
+.Dialog > .Header .Close {
+    height: 20px;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--border-radius-xxs);
+}
+.Dialog > .Header .Close i {
+    color: var(--black);
+    font-weight: var(--normal);
+    font-size: var(--font-size-md);
+}
+
+
+/*
+* Content
+*/
+
+.Dialog .Content {
+    display: flex;
+    flex-direction: column;
+    padding: var(--padding-lg);
+    gap: var(--gap-md);
+    max-height: 80vh !important;
+    width: auto !important;
+    overflow-y: auto;
+}
+
+/* Content Top */
+
+.Dialog > .Content > .InnerContent.main-search-component {
+    background: var(--white);
+    position: relative;
+    max-height: unset !important;
+    overflow-y: scroll;
+    margin: -20px -20px 0;
+    padding: 20px 20px 0;
+}
+
+.main-search-component .search-ticket {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-md);
+    padding: 0;
+    overflow: hidden;
+    overflow-x: hidden;
+}
+
+.main-search-component .search-ticket .top-section:not(.Hidden),
+.main-search-component .search-ticket .bottom-section:not(.Hidden) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--gap-md);
+}
+
+.Dialog .Content fieldset:not(#SearchAttributesHidden):not(.flex-row):not(.Hidden) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 0;
+    gap: var(--gap-sm);
+    padding: 0;
+    min-width: unset;
+}
+
+.main-search-component .search-ticket fieldset.TableLike > legend {
+    display: flex;
+    /* padding-bottom: var(--padding-md); */
+    width: 100%;
+}
+
+.main-search-component .search-ticket fieldset.TableLike legend span {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    text-indent: 0;
+    font-size: var(--font-size-md);
+    font-weight: var(--semi-bold);
+}
+
+.main-search-component .search-ticket fieldset.TableLike > label {
+    display: flex;
+    width: 100%;
+}
+
+.main-search-component .search-ticket .top-section fieldset.TableLike .Field {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
+
+.main-search-component .search-ticket fieldset.TableLike .Field .InputField_Container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 0;
+    flex: 1;
+}
+
+div.InputField_InputContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    line-height: 11px;
+    width: var(--main-field-size);
+    width: 100%;
+}
+
+.Dialog .Field .FocusField {
+    position: absolute;
+    left: -9999px;
+    z-index: -1;
+}
+
+div.InputField_InputContainer .InputField_Search {
+    margin: 0;
+    z-index: 50;
+    background: transparent;
+    position: relative;
+}
+
+.InputField_InputContainer i.fa.fa-caret-down {
+    position: absolute;
+    right: 12px;
+    top: 0; /* 23% */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+}
+
+.main-search-component .search-ticket .top-section fieldset.TableLike .Field.create-tpm-btn {
+    flex-direction: row;
+    justify-content: flex-end;
+    position: absolute;
+    gap: var(--padding-md);
+    top: 40px; /* -30px */
+    right: 0;
+}
+
+.main-search-component .search-ticket .create-tpm-btn button {
+    min-width: var(--btn-max-width-sm);
+    cursor: pointer;
+}
+
+.main-search-component .search-ticket fieldset.TableLike .Field {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    gap: var(--gap-xs);
+    flex-wrap: wrap;
+}
+
+.search-tmp-opt-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    gap: var(--gap-xs);
+    align-items: center;
+}
+
+.main-search-component .search-ticket .bottom-section fieldset.TableLike .Field .RemoveButton {
+    margin: 0;
+    position: relative;
+    right: 0;
+    font-size: var(--font-size-md);
+}
+
+
+
+
+
+
+
+
+
+
+/* Content Footer */
+
+.Dialog > .Content > .ContentFooter.main-search-component-btns {
+    display: flex;
+    flex-flow: row;
+    padding: 0;
+    justify-content: space-between;
+}
+
+.Dialog > .Content > .ContentFooter button {
+    min-width: var(--btn-max-width-md);
+    max-width: var(--btn-max-width-md);
+}
+
+
+

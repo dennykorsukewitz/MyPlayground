@@ -1,0 +1,420 @@
+/**
+* @subsection  |  Last Views
+*/
+
+.toolbar-row-wrapper .toolbar-row .component-last-views ul {
+    gap: var(--padding-sm);
+    flex-wrap: wrap;
+}
+
+.ToolTip {
+    position: relative;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.LastViewToolBarRow a {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gap-xs);
+    color: var(--gray-darker);
+    padding: var(--padding-xs);
+    transition: var(--main-transition);
+    border-radius: var(--border-radius-xxs);
+    border: var(--border-width) var(--border-solid) var(--border-color);
+    font-size: var(--font-size-sm);
+}
+
+.LastView:hover {
+    background: var(--gray-light);
+}
+
+.LastViewAvatar {
+    justify-content: space-between;
+}
+
+.ToolTipContent:after{
+    border-bottom-color: #333 !important;
+}
+
+.LastViewAvatar > span {
+    display: flex;
+    align-items: center;
+    gap: var(--padding-md);
+}
+
+.LastViewAvatar a {
+    transition: var(--main-transition);
+}
+
+.LastViewAvatar div.ToolTipContent{
+    max-width: 225px;
+    flex-wrap: wrap;
+    white-space: normal;
+    top: 58px;
+}
+
+.ToolTip .ToolTipContent {
+    visibility: hidden;
+    width: max-content;
+    padding: var(--padding-sm);
+    position: absolute;
+    z-index: 100;
+    left: 0;
+    top: 34px;
+    background: var(--black);
+    border-radius: var(--border-radius-xxs);
+}
+
+.ToolTip .ToolTipContent p {
+    color: var(--white);
+}
+
+.ToolTip .ToolTipContent:after {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    border-top: 1px solid;
+    border-left: 1px solid;
+    border-color: var(--black);
+    top: -4px;
+    left: 11px;
+    background: var(--black);
+    transform: rotate(45deg);
+}
+
+.ToolTip:hover .ToolTipContent {
+    visibility: visible;
+    display: flex;
+}
+
+.ToolTipText,
+.ToolTipText fieldset {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+}
+
+.ToolTipText fieldset {
+    padding-top: var(--padding-md);
+    gap: 2px;
+}
+
+.LastViewAvatarRow > .ToolTipContent fieldset {
+    display: flex;
+    flex-flow: column;
+    gap: var(--padding-xs);
+    padding-top: var(--padding-sm);
+}
+
+.ToolTipText fieldset span {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    width: -moz-fit-content;
+}
+
+.ToolTipContent > fieldset label,
+.ToolTipText > fieldset label{
+    color: var(--gray-dark-semi);
+}
+
+/* Avatar */
+
+#ToolBar > li.UserAvatar > div {
+    width: max-content !important;
+}
+
+a.LastView.LastViewAvatar.LastViewAvatarRow {
+   margin-top: 0;
+   margin-bottom: 0;
+}
+
+/* ToolBar */
+
+.LastViewToolBarRow {
+    width: fit-content !important;
+    width: -moz-fit-content !important;
+}
+
+
+/* MenuBar */
+
+.LastViewMenuBar{
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 0 var(--main-page-padding) var(--padding-sm) var(--main-page-padding);
+}
+
+@media only screen and (max-width: 1024px) {
+    .LastViewMenuBar{
+        padding: 0 var(--padding-lg) var(--padding-sm) var(--padding-lg);
+    }
+}
+
+.LastViewMenuBarWrapper {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    background: var(--white);
+    border: var(--border-width) var(--border-solid) var(--border-color);  
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-sm);
+}
+
+li.LastViewMenuBarRow a {
+    display: flex;
+    gap: var(--gap-xs);
+    transition: var(--main-transition);
+    color: var(--gray-darker);
+    padding: var(--padding-sm) var(--padding-md);
+    border-right: var(--border-width) var(--border-solid) var(--border-color); 
+}
+
+li.LastViewMenuBarRow:last-child a { 
+    margin: 0;
+}
+
+.LastViewMenuBarRow .ToolTipContent {
+    top: 45px;
+}
+
+
+/**
+* Last Views Toolbar
+*/
+
+.toolbar-row-wrapper .toolbar-row .component-wrapper {
+    display: flex;
+    color: var(--black);
+    flex-direction: column;
+    padding: 0 var(--padding-sm);
+    border-left: var(--border-width) var(--border-solid) var(--border-color);
+}
+
+.toolbar-row-wrapper .toolbar-row .component-wrapper > label{
+    font-size: var(--font-size-sm);
+    margin-left: 7px;
+}
+
+.toolbar-row-wrapper .toolbar-row .component-last-views label {
+    margin-left: 1px;
+}
+
+.toolbar-row-wrapper .toolbar-row .component-wrapper:first-child {
+    padding-left: 0;
+    border-left: 0;
+}
+
+.toolbar-row-wrapper .toolbar-row .component-wrapper:last-child {
+    border-left: 0;
+}
+
+.toolbar-row-wrapper .toolbar-row .component-wrapper ul {
+    display: flex;
+    gap: var(--padding-xs);
+    padding-top: var(--padding-xs);
+}
+
+
+@media only screen and (max-width: 1024px) {
+    .toolbar-row-wrapper .toolbar-row {
+        flex-wrap: wrap;
+        padding-bottom: 0;
+    }
+
+    .toolbar-row-wrapper .toolbar-row .component-wrapper {
+        margin-bottom: var(--margin-md);
+    }
+
+    .toolbar-row-wrapper .toolbar-row .component-wrapper.component-overviews {
+        order: 2;
+    }
+
+    .toolbar-row-wrapper .toolbar-row .component-wrapper.component-actions {
+        order: 3;
+    }
+
+    .toolbar-row-wrapper .toolbar-row .component-wrapper.component-personal-views {
+        order: 4;
+    }
+
+    .toolbar-row-wrapper .toolbar-row .component-wrapper.component-search {
+        order: 1;
+        width: 100%;
+        padding: var(--padding-xs) 0 var(--padding-md) 0;
+        margin: 0;
+    }
+
+    .toolbar-row-wrapper .toolbar-row .component-wrapper.component-last-views {
+        order: 5;
+        border: 0;
+        width: 100%;
+        border-top: var(--border-width) var(--border-solid) var(--border-color);
+        padding: var(--padding-md) 0 0;
+    }
+}
+
+
+
+
+
+
+
+
+/*****************/
+/* Toggle Button */
+.toolbar-row-wrapper #ToolBar-toggle i {
+    margin: 0 0 2px 0;
+    transform: rotate(0deg);
+}
+
+.toolbar-row-wrapper.hide #ToolBar-toggle i {
+    margin: 2px 0 0 0;
+    transform: rotate(180deg);
+}
+
+
+/*****************************/
+/*    Toolbar Search Field   */
+
+.search-bar-container form > i,
+.search-bar-container form > svg {
+    position: absolute;
+    bottom: 25%;
+    left: 10px;
+    font-size: var(--font-size-md);
+}
+
+.search-bar-container input.search-bar {
+    padding-left: var(--padding-xxl);
+}
+
+form input.search-bar {
+    min-width: 200px;
+}
+
+.search-bar-container,
+.search-dropdown-bottom ul {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    transition: var(--main-transition);
+}
+
+.search-bar-container form {
+    position: relative;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    overflow: unset;
+}
+
+.search-bar-container form > .AJAXLoader {
+    position: absolute;
+    top: unset;
+    right: calc(100% + 6px);
+}
+
+.search-bar-container form > i {
+    position: absolute;
+    bottom: 25%;
+    left: 10px;
+    font-size: var(--font-size-md);
+}
+
+.search-bar-container > label {
+    font-size: var(--font-size-sm);
+    margin-left: 0;
+    margin-bottom: var(--margin-xs);
+}
+
+.search-bar-container a {
+    color: var(--black);
+}
+
+.component-wrapper .search-bar-container form .component-wrapper {
+    display: none;
+    flex-flow: column;
+    position: absolute;
+    top: 100%;
+    height: auto;
+    width: 100%;
+    z-index: 100;
+    background: white;
+    padding: var(--padding-md) var(--padding-sm);
+    border-radius: var(--border-radius-xs);
+    box-shadow: var(--menu-box-shadow);
+    border: var(--border-width) var(--border-solid) var(--border-color);
+}
+
+form input.search-bar {
+    min-width: 200px;
+}
+
+input.search-bar:focus + .component-wrapper,
+.component-wrapper .search-bar-container form .component-wrapper:hover {
+    display: flex;
+}
+
+.search-dropdown-top label,
+.search-dropdown-bottom li a {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--margin-sm);
+    padding: var(--padding-sm);
+}
+
+.search-dropdown-top input,
+.search-bar-container i {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    min-width: 15px;
+    color: var(--gray-dark-semi);
+}
+
+.search-bar-container input.search-bar {
+    padding-left: var(--padding-xxl);
+}
+
+.search-dropdown-top input:hover {
+    cursor: pointer;
+}
+
+.search-dropdown-top:after {
+    content: '';
+    width: 100%;
+    height: 1px;
+    background: var(--gray-light-semi);
+    position: relative;
+    display: flex;
+    margin: var(--margin-md) 0;
+}
+
+.search-dropdown-bottom .title {
+    padding: var(--padding-sm);
+    /*font-family: Inter;*/
+    font-size: var(--font-size-sm);
+    font-weight: var(--bold);
+    color: var(--black);
+}
+
+.search-dropdown-bottom .search-profiles-list {
+    overflow-y: auto;
+    max-height: 370px;
+}
+
+
+

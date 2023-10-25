@@ -1,0 +1,488 @@
+/**
+* @subsection  |  jsTree theme
+*/
+
+.jstree-InputField {
+    /*font-size: 11px;*/
+    border: none;
+    box-shadow: none;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.jstree-InputField .jstree-node,
+.jstree-InputField .jstree-children,
+.jstree-InputField .jstree-container-ul {
+    display: block;
+    margin: 0;
+    list-style-type: none;
+    list-style-image: none;
+    text-align: left;
+}
+
+.jstree-container-ul {
+    padding: var(--padding-sm);
+}
+
+.RTL .jstree-InputField .jstree-node,
+.RTL .jstree-InputField .jstree-children,
+.RTL .jstree-InputField .jstree-container-ul {
+    text-align: right;
+}
+
+.jstree-InputField .jstree-children .jstree-children {
+    padding-left: 12px;
+}
+
+.jstree-InputField .jstree-node {
+    white-space: nowrap;
+}
+
+.jstree-InputField .jstree-node.jstree-hidden {
+    display: none !important;
+}
+
+.jstree-InputField .jstree-anchor {
+    display: inline-block;
+    white-space: nowrap;
+    padding: 0;
+    margin: 0;
+    vertical-align: top;
+    color: var(--black);
+    font-size: var(--font-size-sm);
+}
+
+.jstree-InputField .jstree-anchor:focus {
+    outline: 0;
+    background: transparent !important;
+}
+
+.jstree-InputField .jstree-anchor,
+.jstree-InputField .jstree-anchor:link,
+.jstree-InputField .jstree-anchor:visited,
+.jstree-InputField .jstree-anchor:hover,
+.jstree-InputField .jstree-anchor:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.jstree-InputField .jstree-icon {
+    display: inline-block;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    text-align: center;
+}
+
+.jstree-InputField .jstree-icon:empty {
+    display: inline-block;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    text-align: center;
+}
+
+/*.cke_top {
+    background-color: transparent !important;
+}*/
+
+.cke_toolbar_separator {
+    display: none !important;
+}
+
+a.cke_button:hover {
+    background-color: #E2E2EA !important;
+    border-radius: 5px !important ;
+    border: none !important;
+    padding: 4px 6px !important;
+    cursor: pointer;
+}
+
+.RichTextField #cke_RichText,
+.RichTextField #cke_Body,
+.RichTextField #cke_EmailBody,
+.RichTextField .cke {
+    width: 100% !important;
+    max-width: 99.7%; /* to avoid bug where border-right disappears in some containers*/
+    /*max-width: var(--main-field-size) !important;*/
+    border-radius: 10px !important;
+    border: var(--border-width) var(-border-solid) var(--border-color) !important;
+    overflow: hidden;
+}
+
+.cke_inner {
+    border-radius: 10px !important;
+}
+
+.cke_bottom {
+    display: none !important;
+}
+
+.jstree-InputField .jstree-ocl {
+    cursor: pointer;
+}
+
+.jstree-InputField .jstree-leaf > .jstree-ocl {
+    cursor: default;
+}
+
+.jstree-InputField .jstree .jstree-open > .jstree-children {
+    display: block;
+}
+
+.jstree-InputField .jstree .jstree-closed > .jstree-children,
+.jstree-InputField .jstree .jstree-leaf > .jstree-children {
+    display: none;
+}
+
+.jstree-InputField .jstree-anchor > .jstree-themeicon {
+    margin-right: 2px;
+}
+
+.jstree-InputField .jstree-no-icons .jstree-themeicon,
+.jstree-InputField .jstree-anchor > .jstree-themeicon-hidden {
+    display: none;
+}
+
+.jstree-InputField .jstree-rtl .jstree-anchor {
+    padding: 0 1px 0 4px;
+}
+
+.jstree-InputField .jstree-rtl .jstree-anchor > .jstree-themeicon {
+    margin-left: 2px;
+    margin-right: 0;
+}
+
+.jstree-InputField .jstree-rtl .jstree-node {
+    margin-left: 0;
+}
+
+.jstree-InputField .jstree-rtl .jstree-container-ul > .jstree-node {
+    margin-right: 0;
+}
+
+.jstree-InputField .jstree-hovered {
+    background-color: transparent !important;
+}
+
+.jstree-InputField .Disabled > .jstree-anchor {
+    color: #aaa !important;
+    font-style: italic;
+    cursor: default;
+}
+
+.jstree-InputField .jstree-open,
+.jstree-InputField .jstree-closed {
+    cursor: pointer;
+}
+
+.jstree-InputField .jstree-wholerow-ul {
+    position: relative;
+}
+
+.jstree-InputField .jstree-wholerow-ul .jstree-leaf > .jstree-ocl {
+    cursor: pointer;
+}
+
+.jstree-InputField .jstree-wholerow-ul .jstree-anchor,
+.jstree-InputField .jstree-wholerow-ul .jstree-icon {
+    position: relative;
+}
+
+.jstree-InputField-NoTree .jstree-InputField .jstree-wholerow-ul .jstree-anchor,
+.jstree-InputField-NoTree .jstree-InputField .jstree-wholerow-ul .jstree-icon {
+    display: flex;
+    align-items: center;
+}
+
+.jstree-InputField .jstree-wholerow-ul .jstree-wholerow {
+    width: 100%;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    height: 34px;
+    width: 100%;
+    border-radius: var(--border-radius-xs);
+
+}
+
+.jstree-InputField .jstree-wholerow-ul .jstree-wholerow-clicked {
+    background-color: var(--primary-color);
+}
+
+.jstree-InputField .jstree-wholerow-ul .jstree-wholerow:hover,
+.jstree-InputField .jstree-wholerow-ul .jstree-wholerow-hovered,
+.jstree-InputField .jstree-focused > .jstree-wholerow {
+    background-color: var(--gray-light);
+}
+
+.jstree-InputField .jstree-wholerow-ul .jstree-wholerow-clicked:hover,
+.jstree-InputField .jstree-wholerow-ul .jstree-wholerow-clicked.jstree-wholerow-hovered,
+.jstree-InputField .jstree-focused > .jstree-wholerow-clicked {
+    background-color: var(--gray-light);
+}
+
+.jstree-InputField .Disabled > .jstree-wholerow:hover,
+.jstree-InputField .Disabled > .jstree-wholerow-hovered {
+    background-color: var(--disabled);
+    cursor: default;
+}
+
+.jstree-InputField .Disabled.jstree-open > .jstree-anchor,
+.jstree-InputField .Disabled.jstree-closed > .jstree-anchor {
+    cursor: pointer;
+}
+
+.jstree-InputField .jstree-clicked,
+.jstree-InputField .jstree-anchor.jstree-clicked {
+    color: var(--white);
+}
+
+.jstree-InputField .jstree-hovered.jstree-clicked {
+    color: var(--black);
+}
+
+
+.jstree-InputField.jstree-rtl .jstree-node {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAACAQMAAAB49I5GAAAABlBMVEUAAAAdHRvEkCwcAAAAAXRSTlMAQObYZgAAAAxJREFUCNdjAAMOBgAAGAAJMwQHdQAAAABJRU5ErkJggg==");
+    background-position: 100% 1px;
+    background-repeat: repeat-y;
+}
+
+.jstree-InputField.jstree-rtl .jstree-last {
+    background: transparent;
+}
+
+.jstree-InputField.jstree-rtl .jstree-open > .jstree-ocl {
+    background-position: -135px -39px;
+}
+
+.jstree-InputField.jstree-rtl .jstree-closed > .jstree-ocl {
+    background-position: -103px -39px;
+}
+
+.jstree-InputField.jstree-rtl .jstree-leaf > .jstree-ocl {
+    background-position: -71px -39px;
+}
+
+.jstree-InputField.jstree-rtl > .jstree-no-dots .jstree-node,
+.jstree-InputField.jstree-rtl > .jstree-no-dots .jstree-leaf > .jstree-ocl {
+    background: transparent;
+}
+
+.jstree-InputField.jstree-rtl > .jstree-no-dots .jstree-open > .jstree-ocl {
+    background-position: -39px -39px;
+}
+.jstree-InputField.jstree-rtl > .jstree-no-dots .jstree-closed > .jstree-ocl {
+    background-position: -7px -39px;
+}
+
+.jstree-InputField .jstree-themeicon-custom {
+    background-color: transparent;
+    background-image: none;
+    background-position: 0 0;
+}
+
+.jstree-InputField.jstree-rtl .jstree-node {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAACAQMAAABv1h6PAAAABlBMVEUAAAAdHRvEkCwcAAAAAXRSTlMAQObYZgAAAAxJREFUCNdjAAMHBgAAiABBI4gz9AAAAABJRU5ErkJggg==');
+}
+
+.jstree-InputField.jstree-rtl .jstree-last {
+    background: transparent;
+}
+
+.jstree-InputField .jstree-search {
+    font-style: italic;
+}
+
+.jstree-InputField .jstree-no-match .jstree-ocl {
+    display: none;
+}
+
+.jstree-InputField .jstree-no-match {
+    margin-left: 2px !important;
+}
+
+.jstree-InputField.jstree-rtl .jstree-no-match {
+    margin-right: 2px !important;
+}
+
+/**
+ * @subsection  jsTree theme - Tree variant
+ */
+.jstree-InputField-Tree .jstree-node {
+    /*
+    min-height: 18px;
+    line-height: 18px;
+    margin-left: 18px;
+    min-width: 18px;
+    */
+}
+
+.RTL .jstree-InputField-Tree .jstree-node {
+    margin-right: 18px;
+    margin-left: 0;
+}
+
+.jstree-InputField-Tree > .jstree-container-ul > .jstree-node,
+.RTL .jstree-InputField-Tree > .jstree-container-ul > .jstree-node {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.jstree-InputField-Tree .jstree-anchor {
+    /*
+    height: 18px;
+    line-height: 18px;
+    */
+}
+
+.jstree-InputField-Tree .jstree-icon {
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+
+}
+
+.jstree-InputField-Tree .jstree-icon:empty {
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+}
+
+.jstree-InputField-Tree.jstree-rtl .jstree-node {
+    margin-right: 18px;
+}
+
+.jstree-InputField-Tree .jstree-wholerow {
+/*
+    height: 18px;
+*/
+}
+
+.jstree-InputField-Tree .jstree-node,
+.jstree-InputField-Tree .jstree-icon {
+    background-image: url('../img/inputfield_tree.png');
+}
+
+.jstree-InputField-Tree .jstree-node {
+    background-position: -295px -7px;
+    background-repeat: repeat-y;
+}
+
+.jstree-InputField-Tree .jstree-last {
+    background: transparent;
+}
+
+.jstree-InputField-Tree .jstree-open > .jstree-ocl {
+    background-position: -135px -7px;
+}
+
+.RTL .jstree-InputField-Tree .jstree-open > .jstree-ocl {
+    background-position: -135px -39px;
+}
+
+.jstree-InputField-Tree .jstree-closed > .jstree-ocl {
+    background-position: -103px -7px;
+}
+
+.RTL .jstree-InputField-Tree .jstree-closed > .jstree-ocl {
+    background-position: -103px -39px;
+}
+
+.jstree-InputField-Tree .jstree-leaf > .jstree-ocl {
+    background-position: -71px -7px;
+}
+
+.RTL .jstree-InputField-Tree .jstree-leaf > .jstree-ocl {
+    background-position: -71px -39px;
+}
+
+.jstree-InputField-Tree .jstree-themeicon {
+    background-position: -263px -7px;
+}
+
+.RTL .jstree-InputField-Tree .jstree-themeicon {
+    background-position: -263px -39px;
+}
+
+.jstree-InputField-Tree > .jstree-no-dots .jstree-open > .jstree-ocl {
+    background-position: -39px -7px;
+}
+
+.RTL .jstree-InputField-Tree > .jstree-no-dots .jstree-open > .jstree-ocl {
+    background-position: -39px -39px;
+}
+
+.jstree-InputField-Tree > .jstree-no-dots .jstree-closed > .jstree-ocl {
+    background-position: -7px -7px;
+}
+
+.RTL .jstree-InputField-Tree > .jstree-no-dots .jstree-closed > .jstree-ocl {
+    background-position: -7px -39px;
+}
+
+
+
+/**
+ * @subsection  jsTree theme - No Tree variant
+ */
+
+.jstree-InputField-Tree > .jstree-no-dots .jstree-node {
+    background: transparent;
+    display: inherit;
+    height: auto;
+    padding: 0;
+}
+
+.jstree-InputField-NoTree .jstree-node,
+.jstree-InputField .jstree-node {
+    display: flex;
+    align-items: center;
+    position: relative;
+    min-height: auto;
+    line-height: 1;
+    margin-left: 0;
+    min-width: 18px;
+    box-sizing: border-box;
+    height: auto;
+}
+
+.jstree-InputField-NoTree .jstree-anchor,
+.jstree-InputField .jstree-anchor {
+    padding: var(--padding-sm) var(--padding-sm) var(--padding-sm) 0;
+    border-bottom: 5px solid transparent;
+}
+
+.jstree-InputField-NoTree .jstree-leaf .jstree-icon,
+.jstree-InputField .jstree-leaf .jstree-icon {
+    display: none;
+}
+
+.jstree-InputField-NoTree .jstree-leaf a,
+.jstree-InputField .jstree-leaf a {
+    padding-left: var(--padding-sm);
+}
+
+.jstree-InputField .jstree-wholerow-ul .jstree-icon {
+    margin: 8px var(--margin-xs);
+}
+
+.jstree-InputField-NoTree.jstree-rtl .jstree-node,
+.jstree-InputField.jstree-rtl .jstree-node {
+    margin-right: 2px;
+}
+
+.jstree-InputField-NoTree .jstree-wholerow,
+.jstree-InputField .jstree-wholerow {
+    /*height: 18px;*/
+}

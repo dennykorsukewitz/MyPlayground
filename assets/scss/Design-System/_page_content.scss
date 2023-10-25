@@ -1,0 +1,82 @@
+
+#logos {
+    .demo-block {
+        gap: 0;
+        flex-wrap: wrap;
+
+        .item {
+            width: 50%;
+            padding: $padding-xxl;
+            display: flex;
+            justify-content: center;
+
+            &:nth-child(1) {
+                background-color: $black;
+            }
+
+            &:nth-child(2) {
+                background-color: $smoky-white;
+            }
+    
+            &:nth-child(3) {
+                background-color: $color-primary;
+            }
+    
+            &:nth-child(4) {
+
+                background-color: $black-1;
+
+            }
+        }
+    }
+}
+
+#icons {
+    ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-gap: 1em;
+        width: 100%;
+
+        li {
+            display: flex;
+            min-height: 8vh;
+            justify-content: center;
+            align-items: center;
+            background: $smoky-white;
+            @include border-radius($border-radius-sm);
+
+            i,
+            svg {
+                color: $black-1;
+                height: 1.5em;
+            }
+        }
+    }
+}
+
+.btn-download-wapper {
+    display: flex;
+    gap: $gap-md;
+
+    li {
+        a {
+            background: transparent;
+            color: $color-primary;
+            border: 1px solid $color-primary;
+            @include border-radius($border-radius-sm);
+            transition: $transition-main;
+            padding: $padding-xs $padding-sm;
+    
+            &:hover {
+                background: $color-primary;
+                color: $white;
+            }
+        }
+    }
+}
+
+
+.DashboardWidgetExpand {
+    overflow-x: scroll;
+}

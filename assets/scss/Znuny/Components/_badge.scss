@@ -1,0 +1,19 @@
+/**
+* @subsection  |  Badge
+*/
+
+.badge {
+    padding: 4px 8px;
+    background: var(--primary-color-rgb);
+    color: var(--black);
+    font-size: var(--font-size-sm);
+    border-radius: var(--border-radius-sm);
+}
+
+.badge:empty {
+    display: none;
+}
+
+.badge.margin-left_sm {
+    margin-left: var(--margin-sm);
+}

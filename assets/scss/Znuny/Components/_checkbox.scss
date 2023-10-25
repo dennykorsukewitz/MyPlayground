@@ -1,0 +1,108 @@
+/**
+ * @subsection  |  Checkbox Styles
+ */
+
+.radio-field-wrapper {
+    display: flex;
+    gap: var(--gap-sm);
+    align-content: center;
+    align-items: center;
+}
+
+.SidebarColumn label {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-xs);
+}
+
+th > input[type=checkbox] {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 0;
+}
+
+input[type=checkbox] {
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    display: block;
+    width: 16px;
+    min-width: 16px;
+    height: 16px;
+    min-height: 16px;
+    line-height: 16px;
+    text-align: center;
+    cursor: pointer;
+    border: var(--border-width) solid #ccc;
+    background: transparent;
+    border-radius: 3px;
+    z-index: 100;
+    background: var(--white);
+}
+
+input[type=checkbox] + input[type=checkbox]{
+    margin-top: var(--margin-xs);
+}
+
+input[type=checkbox]:hover {
+    border-color: var(--success-color);
+}
+
+input[type=checkbox]:checked {
+    background:var(--success-color);
+    border: 2px solid var(--success-color);
+}
+
+input[type=checkbox]:checked:disabled {
+    background: var(--disabled);
+    border: 2px solid var(--disabled);
+}
+
+input[type=checkbox]:checked + label {
+    color: var(--black);
+}
+
+input[type=checkbox]::after,
+input[type=checkbox]:disabled::after {
+    position: absolute;
+    z-index: 10000;
+    content: '';
+    transform: rotate(45deg);
+    height: 8px;
+    width: 4px;
+    border-bottom: 2px solid transparent;
+    border-right: 2px solid transparent;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 2px;
+    transition: var(--main-transition);
+}
+
+input[type=checkbox]:disabled::after {
+    opacity: 0.8;
+  }
+
+input[type=checkbox]:checked::after{
+    display: inline-block;
+    border-bottom: 2px solid var(--white);
+    border-right: 2px solid var(--white);
+}
+
+.checkbox-container,
+div.card-item .checkbox-container {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    gap: var(--padding-sm);
+}
+
+.checkbox-container .Field,
+div.card-item .checkbox-container .Field {
+    min-width: unset;
+    width: auto;
+}
+
+.checkbox-container > input {
+    margin: 0;
+}

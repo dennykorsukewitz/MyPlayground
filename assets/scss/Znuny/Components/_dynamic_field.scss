@@ -1,0 +1,51 @@
+/**
+*        Dynamic Field       
+*/
+
+div.Row {
+    padding: 0;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: var(--padding-sm);
+}
+
+div.Row label,
+div.Row .Field {
+    padding: 0;
+}
+
+div.Row .Field > div:not(.InputField_Container):not(.TooltipErrorMessage) {
+    display: flex;
+    gap: var(--gap-xs);
+    align-items: center;
+    /*padding-bottom: 5px;*/
+}
+
+.Row.Row_DynamicField_DynamicFieldCheckBox {
+    display: flex;
+    flex-flow: row-reverse;
+    align-items: center;
+    gap: var(--gap-xs);
+    justify-content: start;
+}
+
+.Row_DynamicField_DynamicFieldCheckBox label {
+    padding: 0;
+}
+
+.Row_DynamicField_DynamicFieldCheckBox div.Field {
+    background: unset;
+    width: auto;
+}
+
+.Row_DynamicField_DynamicFieldCheckBox .Field input:not(:checked),
+.Row_DynamicField_DynamicFieldDate .Field input,
+.Row_DynamicField_DynamicFieldDateTime .Field input {
+    background: var(--white);
+}
+
+.Row.Row_DynamicField_DynamicFieldTextArea {
+    min-width: 100%;
+}

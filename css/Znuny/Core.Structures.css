@@ -1,0 +1,170 @@
+/*
+Copyright (C) 2021 Znuny GmbH, https://znuny.org/
+
+This software comes with ABSOLUTELY NO WARRANTY. For details, see
+the enclosed file COPYING for license information (GPL). If you
+did not receive this file, see https://www.gnu.org/licenses/gpl-3.0.txt.
+*/
+/**
+ * @package     Skin "Default"
+ * @section     Structures
+
+    @subsections
+    - Standard (only content)
+    - Action bar + Content
+    - Content + Info column
+    - Action bar + Content + Info column
+
+ */
+.MainBox {
+  position: relative;
+  padding: var(--main-page-padding);
+  background: var(--main-bg-color);
+  display: flex;
+  gap: var(--gap-md);
+  flex-wrap: wrap;
+  flex-direction: column;
+  flex: 1;
+}
+
+.LayoutFixedSidebar {
+  display: flex;
+  flex-flow: row;
+  flex: 1;
+  padding-bottom: var(--padding-md);
+}
+
+.LayoutFixedSidebar.SidebarFirst {
+  gap: 0;
+  border-top: var(--border-width) var(--border-solid) var(--border-color);
+}
+
+.LayoutFixedSidebar.SidebarFirst > .SidebarColumn {
+  max-width: 270px;
+  float: left;
+  margin-left: 0;
+  margin-right: var(--margin-lg);
+}
+
+.LayoutFixedSidebar > .SidebarColumn {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/**
+* @subsection  |  Standard (only content)
+*/
+/**
+* @subsection  |  Action bar + Content
+*/
+.LayoutFixedSidebar.ActionsSideBar {
+  display: flex;
+  padding: 0;
+}
+
+.ActionsSideBar.LayoutFixedSidebar .ActionsSideBarComp {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: var(--main-page-padding);
+  background: var(--white);
+  border-right: var(--border-width) var(--border-solid) var(--border-color);
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 300px;
+  gap: var(--gap-md);
+}
+
+.LayoutFixedSidebar > .ContentColumn {
+  display: flex;
+  flex-flow: column;
+  align-self: self-start;
+  gap: var(--gap-md);
+  justify-content: unset;
+  flex: 1;
+  padding: var(--main-page-padding);
+  overflow: hidden;
+  width: 100%;
+}
+
+/**
+* @subsection  |  Content + Info column
+*/
+.mainStructure.LayoutFixedSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-md);
+  flex-wrap: nowrap;
+  align-items: initial;
+}
+
+.mainStructure.LayoutFixedSidebar .mainContent {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: var(--main-page-padding);
+}
+
+.mainStructure.LayoutFixedSidebar .SidebarColumn {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: var(--side-bar-width-desktop);
+  gap: var(--gap-md);
+}
+
+.mainStructure.LayoutFixedSidebar .ContentColumn {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - var(--side-bar-width-desktop));
+  padding: 0;
+  gap: var(--gap-md);
+}
+
+/**
+* @subsection  |  Action bar + Content + Info column
+*/
+.ContentWrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1600px;
+  align-self: center;
+  gap: var(--gap-md);
+  padding: var(--main-page-padding);
+}
+
+.ActionsSideBar.LayoutFixedSidebar .ContentWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: var(--main-page-padding);
+  width: calc(100% - 270px);
+}
+
+.ActionsSideBar.LayoutFixedSidebar .ContentWrapper .InnerMainBoxContent {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: var(--gap-md);
+}
+
+.LayoutFixedSidebar.SidebarFirst > .ContentColumn .InnerMainBoxContent .InnerSidebarColumn {
+  margin: 0;
+}
+
+.LayoutFixedSidebar.SidebarFirst > .ContentColumn .InnerMainBoxContent .InnerSidebarColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-md);
+  width: 100%;
+  max-width: var(--side-bar-width-desktop);
+  float: right;
+  padding-left: 16px;
+}
+
+.ActionsSideBar.LayoutFixedSidebar .ContentWrapper .InnerMainBoxContent .ContentColumn {
+  display: flex;
+  flex-flow: column;
+  min-width: calc(100% - 270px);
+  padding-right: var(--main-page-padding);
+  gap: var(--gap-md);
+}
+
+/*# sourceMappingURL=Core.Structures.css.map */

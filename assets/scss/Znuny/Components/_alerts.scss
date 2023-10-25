@@ -1,0 +1,47 @@
+/**
+* @subsection  |  Alerts
+*/
+
+.MessageBrowser {
+    display: block;
+    top: 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.SmallBox, .MessageBrowser, .MessageBox, .ACLNote {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--padding-sm) var(--padding-lg);
+    margin-top: var(--margin-lg);
+    position: relative;
+    border-radius: var(--border-radius-xxs);
+    gap: var(--gap-md);
+}
+
+.Info {
+    background: var(--alert-info-bg-color);
+    border: 1px solid var(--alert-info-border-color);
+}
+
+.Info i,
+.Info svg {
+    color: var(--alert-info-icon-color);
+}
+
+.MessageBrowser .p-desc, .MessageBox > span {
+    color: var(--alert-close-icon-color);
+    font-size: var(--font-size-sm);
+    font-weight: var(--normal);
+    padding: 0;
+}
+
+.SmallBox .Close, 
+.MessageBrowser .Close, 
+.MessageBox .Close, 
+.ACLNote .Close {
+    margin-left: auto;
+}

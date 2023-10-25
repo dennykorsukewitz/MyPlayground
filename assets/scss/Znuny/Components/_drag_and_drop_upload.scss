@@ -1,0 +1,160 @@
+/**
+* @subsection  |  Drag And Drop upload
+*/
+
+div.DnDUploadBox {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: var(--padding-lg);
+    border: var(--border-width) var(--border-solid) var(--border-color);
+    border-radius: var(--border-radius-sm);
+    background: var(--white);
+}
+
+div.DnDUploadBox:hover {
+    cursor: pointer;
+}
+
+div.DnDUpload {
+    display: flex;
+    justify-content: center;
+    padding: var(--padding-lg);
+    width: 100%;
+    font-size: var(--font-size-xs);
+    font-weight: var(--semi-bold);
+    line-height: normal;
+    transition: var(--main-transition);
+}
+
+input.AjaxDnDUpload.Error + div.DnDUpload {
+    color: #ff505e;
+    border-color: #ff505e;
+}
+
+div.DnDUpload.DragOver {
+    border-style: dashed;
+    background: var(--overlay-bg);
+    color: #444;
+}
+
+div.DnDUpload i {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    margin-left: -20px;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+div.DnDUpload i.fa-spinner {
+    display: none;
+}
+
+div.DnDUpload.Uploading i.fa-download {
+    display: none;
+}
+
+div.DnDUpload.Uploading i.fa-spinner {
+    display: block;
+}
+
+div.DnDUpload .UploadRunning {
+    display: none;
+}
+
+div.DnDUpload.Uploading .ReadyForUpload {
+    display: none;
+}
+
+div.DnDUpload.Uploading .UploadRunning {
+    display: block;
+}
+
+table.AttachmentList {
+    width: 100%;
+    table-layout: fixed;
+    border: 0;
+    border-bottom: var(--border-width) var(--border-solid) var(--border-color);
+}
+
+table.AttachmentList thead {
+    display: none;
+}
+
+table.AttachmentList tbody tr {
+    border: 0;
+    border-radius: var(--border-radius-xs);
+}
+
+table.AttachmentList tbody tr td {
+    padding: 0 var(--padding-sm);
+    font-size: var(--font-size-sm);
+    font-weight: var(--medium);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: pre;
+    min-width: 125px;
+    max-width: 125px;
+}
+
+table.AttachmentList tbody tr:nth-child(2n) td {
+    background-color: transparent;
+}
+
+table.AttachmentList tbody tr:hover td {
+    background: var(--table-td-even-bg);
+}
+
+table.AttachmentList tbody tr {
+    display: block;
+}
+
+table.AttachmentList tbody tr,
+table.AttachmentList tbody tr td {
+    max-height: 50px;
+    line-height: normal;
+}
+
+table.AttachmentList .Filename {
+    color: var(--primary-color);
+}
+
+table.AttachmentList .Filetype {
+    display: none;
+}
+
+table.AttachmentList .Filesize {
+    color: var(--gray-semi-dark);
+}
+
+table.AttachmentList .Progress {
+    display: block;
+    height: 4px;
+    margin: 3px 0px;
+    background: #f92;
+    width: 0px;
+}
+
+table.AttachmentList .Delete {
+}
+
+table.AttachmentList tbody tr td:last-child {
+    width: 100%;
+    text-align: right;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+table.AttachmentList .AttachmentDelete {
+    display: inline-flex;
+}
+
+table.AttachmentList .AttachmentDelete i {
+    width: 16px;
+    height: 16px;
+}
+
+table.AttachmentList.DataTable thead th {
+    line-height: 12px;
+}

@@ -1,0 +1,61 @@
+/*
+Copyright (C) 2021 Znuny GmbH, https://znuny.org/
+
+This software comes with ABSOLUTELY NO WARRANTY. For details, see
+the enclosed file COPYING for license information (GPL). If you
+did not receive this file, see https://www.gnu.org/licenses/gpl-3.0.txt.
+*/
+
+/**
+ * @package     Skin "Default"
+ * @section     Components
+
+    @subsections Base
+    - Alert
+    - Breadcrumb
+    - Buttons
+    - Input File Upload
+    - DragAndDrop Upload
+    - Navbar
+    - Pagination
+
+    @subsections New
+    - Badge
+    - Toolbar
+    - Dashboard Content Filter
+    - Tables
+    - Sidebar Widget General
+    - Search Menu Widget
+
+ */
+
+@import "Components/reset";
+@import "Components/inputs";
+@import "Components/forms";
+@import "Components/js_tree_plugin";
+@import "Components/checkbox";
+@import "Components/radio_button";
+@import "Components/dynamic_field";
+@import "Components/icons";
+
+/*
+  @subsections Base
+*/
+@import "Components/alerts";
+@import "Components/breadcrumb";
+@import "Components/buttons";
+@import "Components/input_file_upload";
+@import "Components/drag_and_drop_upload";
+@import "Components/navbar";
+@import "Components/pagination";
+//@import "Components/last_views";
+
+/*
+  @subsections New
+*/
+@import "Components/badge";
+@import "Components/toolbar";
+@import "Components/dashboard_content_filter";
+@import "Components/tables";
+@import "Components/sidebar_widget_general";
+@import "Components/search_menu_widget";

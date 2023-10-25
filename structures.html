@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Znuny - Structures</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- FontAwesome JS -->
+    <script defer src="assets/fontawesome/js/all.js"></script>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+    <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css">
+    <link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+    <!-- Theme CSS -->
+    <link id="design-system-style" rel="stylesheet" href="assets/css/styles.css">
+    <link id="znuny-styles" rel="stylesheet" href="css/styles.min.css">
+</head>
+
+<body>
+    <div class="page-wrapper page-structures">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <div class="branding">
+                    <h1 class="logo">
+                        <a href="index.html">
+                            <img src="/assets/images/logo_orange.svg">
+                        </a>
+                    </h1>
+                </div>
+                <!--//branding-->
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Structures</li>
+                </ol>
+                <div class="top-search-box">
+                    <form class="form-inline search-form justify-content-center" action="" method="get">
+                        <input type="text" placeholder="Search..." name="search" class="form-control search-input">
+                        <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
+            <!--//container-->
+        </header>
+        <!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title">Structures</h1>
+                    <div class="meta"><i class="far fa-clock"></i> Last updated: June 13th, 2022</div>
+                </div>
+                <!--//doc-header-->
+                <div class="doc-body row">
+                    <div class="doc-content col-md-9 col-12 order-1">
+                        <div class="content-inner">
+                            <section id="" class="doc-section">
+                                <h2 class="section-title">Main Structures</h2>
+                                <div id="strucutre-1" class="section-block">
+                                    <h3 class="block-title">Standard (only content)</h3>
+                                    <div class="row">
+                                        <p>The <code>.MainBox</code> class is used in a <code>div</code> (usually followed by other classes) that wraps around every content that isn't the page's Toolbar, Header and Footer elements.</p>
+                                        <p>Most pages have the <code>.MainBox</code> class.</p>
+                                        <div class="col-md-12 col-12">
+                                            <div class="demo-block">
+                                                <div class="MainBox ds-section">
+                                                    <span class="structure-label">.MainBox</span>
+                                                </div>
+                                            </div>
+                                            <!--//demo-block-->
+                                            <div class="demo-block">
+                                                <img style="max-width:100%" src="assets/images/structure examples/mainbox_2.png">
+                                            </div>
+                                            <!--//demo-block-->
+                                            <div class="demo-block">
+                                                <img style="max-width:100%" src="assets/images/structure examples/mainbox_2.png">
+                                            </div>
+                                            <!--//demo-block-->
+                                        </div>
+                                    </div>
+                                    <!--//row-->
+                                    <div class="row">
+                                        <div class="col-md-12 col-12">
+                                            <div class="code-block">
+                                                <h6>HTML Code Example</h6>
+                                                <pre><code class="language-markup">
+&#x3C;!DOCTYPE html&#x3E;
+
+&#x3C;!-- Simple structure example showing how the &#x3C;div class=&#x22;MainBox&#x22;&#x3E; element is nested--&#x3E;
+&#x3C;body class=&#x22;Visible-ScreenXL&#x22;&#x3E;
+    &#x3C;div id=&#x22;AppWrapper&#x22;&#x3E;
+        &#x3C;div id=&#x22;Header&#x22;&#x3E;&#x3C;/div&#x3E;
+        &#x3C;div id=&#x22;HeaderToolBar&#x22;&#x3E;&#x3C;/div&#x3E;
+
+        &#x3C;div class=&#x22;MainBox&#x22;&#x3E;
+
+        &#x3C;/div&#x3E;
+
+        &#x3C;div id=&#x22;Footer&#x22;&#x3E;&#x3C;/div&#x3E;
+    &#x3C;/div&#x3E;
+&#x3C;/body&#x3E;
+                                                </code></pre>
+                                            </div>
+                                            <!--//code-block-->
+                                        </div>
+                                    </div>
+                                    <!--//row-->
+                                </div>
+                                <!--//section-block-->
+                                <div id="strucutre-2" class="section-block">
+                                    <h3 class="block-title">Action bar + Content</h3>
+                                    <div class="row">
+                                        <p>This structure can be most commonly found in the Admin Area.</p>
+                                        <div class="col-md-12 col-12">
+                                            <div class="demo-block">
+                                                <div class="MainBox ARIARoleMain LayoutFixedSidebar SidebarFirst ActionsSideBar ds-section">
+                                                    <span class="structure-label">.MainBox .LayoutFixedSidebar
+                                                        .SidebarFirst .ActionsSideBar</span>
+                                                    <div class="SidebarColumn ActionsSideBarComp ds-section">
+                                                        <span class="structure-label">.SidebarColumn
+                                                            .ActionsSideBarComp</span>
+                                                    </div>
+                                                    <div class="ContentColumn ds-section">
+                                                        <span class="structure-label">.ContentColumn</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--//demo-block-->
+                                            <div class="demo-block">
+                                                <img style="max-width:100%" src="assets/images/structure examples/Action bar + Content.png">
+                                            </div>
+                                            <!--//demo-block-->
+                                        </div>
+                                    </div>
+                                    <!--//row-->
+                                    <div class="row">
+                                        <div class="col-md-12 col-12">
+                                            <div class="code-block">
+                                                <h6>HTML Code Example</h6>
+                                                <pre><code class="language-markup">&lt;!DOCTYPE html&gt;
+
+&#x3C;div class=&#x22;MainBox ARIARoleMain LayoutFixedSidebar SidebarFirst ActionsSideBar&#x22;&#x3E;
+    &#x3C;div class=&#x22;SidebarColumn ActionsSideBarComp&#x22;&#x3E;&#x3C;/div&#x3E;
+    &#x3C;div class=&#x22;ContentColumn&#x22;&#x3E;&#x3C;/div&#x3E;
+&#x3C;/div&#x3E;
+
+                                                </code></pre>
+                                            </div>
+                                            <!--//code-block-->
+                                        </div>
+                                    </div>
+                                    <!--//row-->
+                                </div>
+                                <!--//section-block-->
+                                <div id="strucutre-3" class="section-block">
+                                    <h3 class="block-title">Content + Info column</h3>
+                                    <div class="row">
+                                        <div class="col-md-12 col-12">
+                                            <div class="demo-block">
+                                                <div class="MainBox ARIARoleMain LayoutFixedSidebar mainStructure SidebarLast ds-section">
+                                                    <span class="structure-label">.MainBox .mainStructure
+                                                        .SidebarLast</span>
+                                                    <div class="mainContent ds-section">
+                                                        <span class="structure-label">.mainContent</span>
+                                                        <div class="SidebarColumn ds-section">
+                                                            <span class="structure-label">.SidebarColumn</span>
+                                                        </div>
+                                                        <div class="ContentColumn ds-section">
+                                                            <span class="structure-label">.ContentColumn</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--//demo-block-->
+                                            <div class="demo-block">
+                                                <img style="max-width:100%" src="assets/images/structure examples/Content + Info column.png">
+                                            </div>
+                                            <!--//demo-block-->
+                                        </div>
+                                    </div>
+                                    <!--//row-->
+                                    <div class="row">
+                                        <div class="col-md-12 col-12">
+                                            <div class="code-block">
+                                                <h6>HTML Code Example</h6>
+                                                <pre><code class="language-markup">&lt;!DOCTYPE html&gt;
+&#x3C;div class=&#x22;MainBox ARIARoleMain LayoutFixedSidebar mainStructure SidebarLast&#x22;&#x3E;
+    &#x3C;div class=&#x22;mainContent&#x22;&#x3E;
+        &#x3C;div class=&#x22;SidebarColumn&#x22;&#x3E;&#x3C;/div&#x3E;
+        &#x3C;div class=&#x22;ContentColumn&#x22;&#x3E;&#x3C;/div&#x3E;
+    &#x3C;/div&#x3E;
+&#x3C;/div&#x3E;
+                                                </code></pre>
+                                            </div>
+                                            <!--//code-block-->
+                                        </div>
+                                    </div>
+                                    <!--//row-->
+                                </div>
+                                <!--//section-block-->
+                                <div id="strucutre-4" class="section-block">
+                                    <h3 class="block-title">Action bar + Content + Info column</h3>
+                                    <div class="row">
+                                        <div class="col-md-12 col-12">
+                                            <div class="demo-block">
+                                                <div class="MainBox ARIARoleMain LayoutFixedSidebar SidebarFirst ActionsSideBar ds-section">
+                                                    <span class="structure-label">.MainBox .LayoutFixedSidebar
+                                                        .SidebarFirst .ActionsSideBar</span>
+                                                    <div class="SidebarColumn ActionsSideBarComp ds-section">
+                                                        <span class="structure-label">.SidebarColumn
+                                                            .ActionsSideBarComp</span>
+                                                    </div>
+                                                    <div class="ContentColumn ContentWrapper ds-section">
+                                                        <span class="structure-label">.ContentColumn
+                                                            .ContentWrapper</span>
+                                                        <div class="InnerMainBoxContent ds-section">
+                                                            <span class="structure-label">.InnerMainBoxContent</span>
+                                                            <div class="InnerSidebarColumn ds-section">
+                                                                <span class="structure-label">.InnerSidebarColumn</span>
+                                                            </div>
+                                                            <div class="ContentColumn ds-section">
+                                                                <span class="structure-label">.ContentColumn</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--//demo-block-->
+                                            <div class="demo-block">
+                                                <img style="max-width:100%" src="assets/images/structure examples/Action bar + Content + Info column.png">
+                                            </div>
+                                            <!--//demo-block-->
+                                        </div>
+                                    </div>
+                                    <!--//row-->
+                                    <div class="row">
+                                        <div class="col-md-12 col-12">
+                                            <div class="code-block">
+                                                <h6>HTML Code Example</h6>
+                                                <pre><code class="language-markup">&lt;!DOCTYPE html&gt;
+&#x3C;div class=&#x22;MainBox ARIARoleMain LayoutFixedSidebar SidebarFirst ActionsSideBar&#x22;&#x3E;
+    &#x3C;div class=&#x22;SidebarColumn ActionsSideBarComp&#x22;&#x3E;&#x3C;/div&#x3E;
+    &#x3C;div class=&#x22;ContentColumn ContentWrapper&#x22;&#x3E;
+        &#x3C;div class=&#x22;InnerMainBoxContent&#x22;&#x3E;
+            &#x3C;div class=&#x22;InnerSidebarColumn&#x22;&#x3E;&#x3C;/div&#x3E;
+            &#x3C;div class=&#x22;ContentColumn&#x22;&#x3E;&#x3C;/div&#x3E;
+        &#x3C;/div&#x3E;
+    &#x3C;/div&#x3E;
+&#x3C;/div&#x3E;
+                                                </code></pre>
+                                            </div>
+                                            <!--//code-block-->
+                                        </div>
+                                    </div>
+                                    <!--//row-->
+                                </div>
+                                <!--//section-block-->
+                            </section>
+                            <!--//doc-section-->
+                        </div>
+                        <!--//content-inner-->
+                    </div>
+                    <!--//doc-content-->
+                    <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
+                        <div id="doc-nav" class="doc-nav">
+                            <ul id="doc-menu" class="nav doc-menu flex-column sticky">
+                                <li class="nav-item">
+                                    <a class="nav-link scrollto" href="#">Main Structures</a>
+                                </li>
+                                <li class="nav-item">
+                                    <ul class="nav doc-sub-menu nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link scrollto" href="#strucutre-1">Standard (only content)</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link scrollto" href="#strucutre-2">Action bar + Content</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link scrollto" href="#strucutre-3">Content + Info column)</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link scrollto" href="#strucutre-4">Action bar + Content + Info
+                                                column</a>
+                                        </li>
+                                    </ul>
+                                    <!--//nav-->
+                                </li>
+                            </ul>
+                            <!--//doc-menu-->
+                        </div>
+                        <!--//doc-nav-->
+                    </div>
+                    <!--//doc-sidebar-->
+                </div>
+                <!--//doc-body-->
+            </div>
+            <!--//container-->
+        </div>
+        <!--//doc-wrapper-->
+    </div>
+    <!--//page-wrapper-->
+    <footer id="footer" class="footer text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12 text-start">
+                    <div class="logo">
+                        <img src="/assets/images/logo_white.svg">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 text-end">
+                    <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+                    <small class="copyright">Theme by <a href="https://themes.3rdwavemedia.com/" target="_blank">Xiaoying Riley</a></small>
+                </div>
+            </div>
+        </div>
+        <!--//container-->
+    </footer>
+    <!--//footer-->
+    <!-- Main Javascript -->
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/plugins/prism/prism.js"></script>
+    <script src="assets/plugins/stickyfill/dist/stickyfill.min.js"></script>
+    <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script>
+    <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

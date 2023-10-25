@@ -1,0 +1,169 @@
+/**
+* @subsection  |  Tables
+*/
+
+.table-content {
+    transition: var(--main-transition);
+    padding: 0;
+    min-height: 0;
+    border-radius: var(--border-radius-sm);
+    overflow: auto;
+    position: relative;
+    z-index: 5;
+    border: var(--border-width) var(--border-solid) var(--border-color);
+}
+
+.ContentColumn .DataTable {
+    overflow: hidden;
+}
+
+.DataTable {
+    width: 100%;
+    background-color: var(--table-bg);
+    // border: none;
+    clear: both;
+    border-collapse: separate;
+}
+
+.DataTable thead {
+    background: var(--table-th-bg);
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+
+}
+
+
+
+.AdminManagement .ContentColumn .DataTable thead th,
+.WidgetSimple form:first-child .DataTable thead th,
+.WidgetSimple .Content table.DataTable:first-child thead th {
+    border-top: 0;
+}
+.DataTable:not(.TableList) thead th,
+.ContentColumn .DataTable:not(.TableList) thead th {
+    border-top: var(--border-width) var(--border-solid) var(--border-color);
+    border-bottom: var(--border-width) var(--border-solid) var(--border-color);
+}
+
+table thead tr th:first-child,
+table tbody tr td:first-child {
+    padding-left: var(--padding-lg);
+}
+
+.DataTable thead th,
+.DataTable thead th.DashboardHeader,
+.TableSmall thead th,
+.TableSmall thead a,
+.TableSmall thead span {
+    position: relative;
+    padding: 12px var(--padding-lg);
+    font-size: var(--font-size-sm);
+    font-weight: var(--semi-bold);
+    text-transform: uppercase;
+    color: var(--table-text-color);
+    background: var(--table-th-bg);
+    vertical-align: middle;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.DataTable tbody tr,
+.TableSmall tbody tr {
+    position: relative;
+}
+
+
+.DataTable tbody tr.Invalid td {
+    background-color: var(--tr-disabled-bg);
+    color: var(--tr-disabled-text);
+}
+
+table thead tr th:first-child,
+table tbody tr td:first-child {
+    padding-left: var(--padding-lg);
+}
+
+.DataTable tbody tr td,
+.TableSmall tbody tr td,
+.DataTable tbody tr td.Clickable,
+.TableSmall tbody tr td.Clickable,
+.DataTable tr:nth-child(2n) td.Highlight {
+    transition: var(--main-transition);
+}
+
+.DataTable tbody td {
+    padding: var(--padding-md) var(--padding-lg);
+    border-right: none;
+    font-size: var(--main-font-size);
+    line-height: normal;
+  color: #44444F;
+}
+
+.DataTable td,
+.TableSmall td {
+    padding: var(--padding-lg);
+    vertical-align: middle;
+    box-sizing: border-box;
+    font-size: var(--main-font-size);
+}
+
+.ContentColumn .DataTable tbody tr > td > a {
+    color: var(--primary-color);
+}
+
+
+
+.DataTable tr:nth-child(2n) td:not(:first-child:last-child) {
+    background-color: var(--table-td-even-bg);
+}
+
+.DataTable tbody tr:hover td,
+.TableSmall tbody tr:hover td,
+.DataTable tbody tr:active td.Clickable,
+.TableSmall tbody tr:active td.Clickable,
+.DataTable tr:nth-child(2n):hover td.Highlight {
+    background: var(--primary-color-rgb);
+}
+
+.DataTable tbody td:last-child {
+    border-right: none;
+}
+
+
+/*
+    Table Buttons Icons
+*/
+
+.table-icon-hover-md {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+    border-radius: var(--border-radius-xs);
+    transition: var(--main-transition);
+    // text-indent: -9999px;
+}
+
+.table-icon-hover-md:hover {
+    background: var(--primary-color);
+}
+
+.table-icon-hover-md i,
+.table-icon-hover-md svg {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 22%;
+    transition: var(--main-transition);
+    text-indent: initial;
+}
+
+.table-icon-hover-md:hover i,
+.table-icon-hover-md:hover svg {
+    color: var(--white);
+}

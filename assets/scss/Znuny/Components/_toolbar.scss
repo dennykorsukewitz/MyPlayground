@@ -1,0 +1,413 @@
+/**
+* @subsection  |  Toolbar
+*/
+
+.toolbar-row-wrapper .toolbar-row {
+    display: flex;
+    align-items: flex-start;
+    padding: var(--padding-sm) var(--padding-lg);
+    border-bottom: var(--border-width) var(--border-solid) var(--border-color);
+    transition: var(--main-transition);
+    background: var(--white);
+}
+
+.toolbar-row-wrapper .toolbar-row .component-wrapper:first-child {
+    padding-left: 0;
+    border-left: 0;
+}
+
+.toolbar-row-wrapper .toolbar-row .component-wrapper {
+    display: flex;
+    color: var(--black);
+    flex-direction: column;
+    padding: 0 var(--padding-sm);
+    border-left: var(--border-width) var(--border-solid) var(--border-color);
+}
+
+.toolbar-row-wrapper .toolbar-row .component-wrapper:last-child {
+    border-left: 0;
+}
+
+.toolbar-row-wrapper .toolbar-row .component-wrapper > label {
+    font-size: var(--font-size-sm);
+    margin-left: 7px;
+}
+
+.toolbar-row-wrapper .toolbar-row .component-wrapper ul {
+    display: flex;
+    gap: var(--padding-xs);
+    padding-top: var(--padding-xs);
+}
+
+.dropdown-item, .dropdown-item a, .dropdown-item.Selected a {
+    color: var(--menu-font);
+    font-size: var(--font-size-sm);
+}
+
+.dropdown-item, .dropdown-filter .dropdown-menu li {
+    width: 100%;
+    display: flex;
+    margin: 0;
+    box-sizing: border-box;
+    justify-content: space-between;
+    padding: var(--padding-xs);
+    border-radius: var(--border-radius-xs);
+    transition: var(--main-transition);
+    align-items: center;
+}
+
+.dropdown-item,
+.dropdown-item a,
+.dropdown-item.Selected a {
+    color: var(--menu-font);
+    font-size: var(--font-size-sm);
+}
+
+.dropdown-item, .dropdown-filter .dropdown-menu li {
+    width: 100%;
+    display: flex;
+    margin: 0;
+    box-sizing: border-box;
+    justify-content: space-between;
+    padding: var(--padding-xs);
+    border-radius: var(--border-radius-xs);
+    transition: var(--main-transition);
+    align-items: center;
+}
+
+.toolbar-row-wrapper .toolbar-row ul li a .iconWrapper {
+    display: flex;
+    height: 22px;
+    width: 22px;
+    position: relative;
+    background: transparent;
+    color: var(--gray-dark);
+    padding: 0;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+}
+
+.toolbar-row-wrapper .toolbar-row ul li a .iconWrapper i,
+.toolbar-row-wrapper .toolbar-row ul li a .iconWrapper svg {
+    position: relative;
+    display: block !important;
+    font-size: var(--font-size-lg);
+    color: var(--gray-dark);
+    font-style: normal;
+    font-weight: normal !important;
+    padding: 0;
+    text-align: center;
+    text-indent: 0;
+    text-shadow: none;
+    width: 24px;
+    top: 0;
+}
+
+.toolbar-row-wrapper .toolbar-row .component-last-views ul {
+    gap: var(--padding-sm);
+    flex-wrap: wrap;
+}
+
+.toolbar-row-wrapper .toolbar-row .component-wrapper ul {
+    display: flex;
+    gap: var(--padding-xs);
+    padding-top: var(--padding-xs);
+}
+
+.LastViewToolBarRow {
+    width: fit-content !important;
+    width: -moz-fit-content !important;
+}
+
+.ToolTip {
+    position: relative;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.ToolTip .ToolTipContent::after {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    border-top: 1px solid;
+      border-top-color: currentcolor;
+    border-left: 1px solid;
+      border-left-color: currentcolor;
+    border-color: var(--black);
+    top: -4px;
+    left: 11px;
+    background: var(--black);
+    transform: rotate(45deg);
+}
+
+.ToolTipContent::after {
+    border-bottom-color: #333 !important;
+}
+
+.ToolTip .ToolTipContent {
+    visibility: hidden;
+    width: max-content;
+    padding: var(--padding-sm);
+    position: absolute;
+    z-index: 100;
+    left: 0;
+    top: 34px;
+    background: var(--black);
+    border-radius: var(--border-radius-xxs);
+}
+
+.ToolTipText,
+.ToolTipText fieldset {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+}
+
+.ToolTip .ToolTipContent p {
+    color: var(--white);
+}
+
+p {
+    line-height: 1.3em;
+}
+
+.ToolTipText fieldset {
+    padding-top: var(--padding-md);
+    gap: 2px;
+  }
+
+
+
+/*******************************************************/
+/*                    Toolbar Buttons                  */
+/*******************************************************/
+.dropdown-container {
+    position: relative;
+    padding: 0 var(--padding-sm);
+}
+
+/*.dropdown-filter*/
+.HeaderFilter {
+    display: flex;
+    flex-flow: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0;
+    position: absolute;
+    /*top: 14px;*/
+    right: 52px;
+    gap: var(--gap-sm);
+}
+
+@media only screen and (max-width: 1024px) {
+    .HeaderFilter {
+        flex-flow: row;
+    }
+}
+
+.HeaderFilter .fa-plus-square {
+    color: var(--plus-color);
+}
+
+.HeaderFilter a {
+    display: flex;
+    flex-flow: row;
+    align-items: baseline;
+    gap: var(--gap-xs);
+}
+
+.HeaderFilter a:hover > span,
+.HeaderFilter a > span:hover {
+    text-decoration: underline;
+}
+
+.HeaderFilter label {
+    max-width: unset;
+}
+
+/*.dropdown-filter .btn-dropdown .btn-wrapper {
+    padding: 0 var(--padding-md);
+}*/
+
+.dropdown-filter .dropdown-menu {
+    padding: var(--padding-md) var(--padding-sm);
+    box-sizing: border-box;
+}
+
+.dropdown-filter .btn-dropdown:hover .btn-text {
+    color: var(--black);
+}
+
+.btn-dropdown {
+    border-width: var(--btn-dropdown-border-width) !important;
+    border-radius: var(--btn-dropdown-border-radius) !important;
+}
+
+.btn-dropdown:hover {
+    background-color: var(--primary-color);
+}
+
+.dropdown-filter .btn-dropdown:hover {
+    background-color: var(--btn-filter-dropdown-hover-color);
+}
+
+.btn-dropdown:hover .btn-wrapper {
+    color: var(--white) !important;
+}
+
+/*note: first block of attributes is adapted from line 640 in Core.Header*/
+/*note: second block of attributes is adapted from line 778 in Core.Widget*/
+.btn-dropdown .btn-wrapper {
+    display: flex;
+    align-items: center;
+    color:var(--btn-dropdown-color);
+    min-height: var(--btn-dropdown-min-height);
+    min-width: var(--btn-dropdown-min-width);
+    padding: 0;
+    gap: 8px;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    text-shadow: none;
+    cursor: pointer;
+    position: relative;
+    justify-content: center;
+    width: 100%;
+}
+
+.btn-text {
+    line-height: var(--main-line-height);
+    font-weight: var(--btn-dropdown-font-weight);
+    font-size: var(--btn-dropdown-font-size);
+    padding: 0 !important;
+}
+
+.toolbar-row-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    transition: var(--main-transition);
+    padding-bottom: var(--padding-sm);
+}
+
+.toolbar-row-wrapper .toolbar-row {
+    display: flex;
+    align-items: flex-start;
+    padding: var(--padding-sm) var(--padding-lg);
+    border-bottom: var(--border-width) var(--border-solid) var(--border-color);
+    transition: var(--main-transition);
+    background: var(--white);
+}
+
+
+
+
+/*******************************************************/
+/*                    Toolbar Icons                    */
+/*******************************************************/
+.toolbar-row-wrapper .toolbar-row ul li a .iconWrapper {
+    display: flex;
+    height: 22px;
+    width: 22px;
+    position: relative;
+    background: transparent;
+    color: var(--gray-dark);
+    padding: 0;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+}
+
+.toolbar-row-wrapper .toolbar-row ul li a .iconWrapper i,
+.toolbar-row-wrapper .toolbar-row ul li a .iconWrapper svg {
+    position: relative;
+    display: block !important;
+    font-size: var(--font-size-lg);
+    color: var(--gray-dark);
+    font-style: normal;
+    font-weight: normal !important;
+    padding: 0;
+    text-align: center;
+    text-indent: 0;
+    text-shadow: none;
+    width: 24px;
+    top: 0;
+}
+
+.toolbar-row-wrapper .toolbar-row ul li a .iconWrapper i.icon-small,
+.toolbar-row-wrapper .toolbar-row ul li a .iconWrapper svg.icon-small {
+    position: absolute;
+    display: none !important;
+    width: auto;
+    text-align: center;
+    font-size: var(--font-size-xs);
+}
+
+.toolbar-row-wrapper .toolbar-row ul li a .iconWrapper span.Counter {
+    display: block;
+    left: -9px;
+    top: -10px;
+    bottom: inherit;
+    margin-left: 0;
+    position: absolute;
+    text-align: center;
+    text-indent: 0 !important;
+    background: var(--warning-color);
+    border-radius: var(--border-radius-md);
+    color: var(--white);
+    font-size: var(--font-size-xs);
+    min-width: 8px;
+    line-height: 16px;
+    width: auto;
+    padding: 0 4px;
+    border: 2px solid var(--white);
+}
+
+/* note: following icons never overlap */
+.toolbar-row-wrapper .toolbar-row ul li a .iconWrapper .fa-star,
+.toolbar-row-wrapper .toolbar-row ul li a .iconWrapper .fa-clock {
+    top: -6px;
+    right: -2px;
+}
+.toolbar-row li.Reached .iconWrapper i.icon-small.icon-small.icon-show-reached,
+.toolbar-row li.New .iconWrapper i.icon-small.icon-small.icon-show-new,
+.toolbar-row li.Reached .iconWrapper svg.icon-small.icon-small.icon-show-reached,
+.toolbar-row li.New .iconWrapper svg.icon-small.icon-small.icon-show-new {
+    display: block !important;
+}
+
+.btn-toggle,
+.btn-toggle.icon-hover {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 15px;
+    background: var(--white);
+    border-radius: 0 0 var(--border-radius-xxs) var(--border-radius-xxs);
+    border: var(--border-width) var(--border-solid) var(--border-color);
+    margin-top: -1px;
+    cursor: pointer;
+}
+
+
+
+/**
+* Last Views Toolbar
+*/
+@import "last_views";
+
+
+
+
+
+
+
+
+
+
+

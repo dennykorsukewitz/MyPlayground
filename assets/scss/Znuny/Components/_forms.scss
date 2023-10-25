@@ -1,0 +1,13 @@
+form label[for],
+form label,
+.TableLike label {
+    display: flex;
+    align-items: center;
+    gap: var(--padding-xs);
+    line-height: normal;
+    min-height: 28px;
+    font-size: var(--main-font-size);
+    font-weight: var(--semi-bold);
+    letter-spacing: 0.2px;
+    color: var(--gray-dark-semi);
+}

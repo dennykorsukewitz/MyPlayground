@@ -1,0 +1,86 @@
+/**
+* @subsection  |  Icons
+*/
+
+    .icon-hover,
+    .icon-hover-md,
+    .icon-hover-sm {
+        display: flex;
+        align-items: center;
+        align-self: center;
+        justify-content: center;
+        width: var(--icon-hover-size);
+        height: var(--icon-hover-size);
+        min-height: 0 !important;
+        border-radius: var(--border-radius-xs);
+        transition: var(--main-transition);
+    }
+
+    .Field .icon-hover,
+    .Field .icon-hover-md,
+    .Field .icon-hover-sm {
+        align-self: inherit;
+    }
+
+    label .icon-hover,
+    button .icon-hover {
+        margin: 0;
+        position: relative;
+        left: 2px;
+        transition: var(--main-transition);
+    }
+
+    label .icon-hover i,
+    label .icon-hover svg,
+    button .icon-hover i,
+    button .icon-hover svg {
+        color: var(--gray-dark-semi);
+        font-size: var(--font-size-md);
+    }
+
+    .icon-hover-md {
+        width: var(--icon-hover-md-size);
+        height: var(--icon-hover-md-size);
+    }
+
+    .icon-hover-sm {
+        width: var(--icon-hover-sm-size);
+        height: var(--icon-hover-sm-size);
+        border-radius: var(--border-radius-xxs);
+        min-width: var(--icon-hover-sm-size);
+        min-height: var(--icon-hover-sm-size);
+    }
+
+    .icon-hover i,
+    .icon-hover-md i,
+    .icon-hover-sm i,
+    .icon-hover svg,
+    .icon-hover-md svg,
+    .icon-hover-sm svg {
+        font-weight: var(--normal);
+        font-size: var(--font-size-md);
+        color: var(--gray-dark-semi);
+    }
+
+    .icon-hover:hover,
+    .icon-hover-md:hover,
+    .icon-hover-sm:hover {
+        cursor: pointer;
+        background-color: var(--icon-hover-color-light);
+    }
+
+    /* color exception for icons placed in lists */
+    ul:not(#HeaderToolBar) > li .icon-hover:hover,
+    ul:not(#HeaderToolBar) > li .icon-hover-sm:hover,
+    ul:not(#HeaderToolBar) > li .icon-hover-md:hover {
+        background-color: var(--primary-color);
+    }
+
+    ul > li .icon-hover:hover i,
+    ul > li .icon-hover-sm:hover i,
+    ul > li .icon-hover-md:hover i,
+    ul > li .icon-hover:hover svg,
+    ul > li .icon-hover-sm:hover svg,
+    ul > li .icon-hover-md:hover svg {
+        color: var(--white);
+    }

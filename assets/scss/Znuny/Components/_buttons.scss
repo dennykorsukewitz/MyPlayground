@@ -1,0 +1,281 @@
+/**
+* @subsection  |  Buttons
+*/
+
+.btn-main {
+    width: 100%;
+    min-height: var(--btn-min-height);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-weight: var(--semi-bold);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--main-transition);
+    padding: 0 var(--padding-md); /*important width limit for btns with longer text*/
+    text-align: center;
+    font-size: var(--font-size-sm);
+    text-decoration: none;
+}
+
+.btn-main.Hidden {
+    display: none;
+}
+
+.btn-main span {
+    font-size: var(--font-size-sm);
+}
+
+.btn-main:focus {
+    color: var(--white);
+}
+
+.btn-icon {
+    width: var(--btn-icon-sm);
+    height: var(--btn-icon-sm);
+    min-height: unset;
+    min-width: unset;
+}
+.icon-hover,
+.icon-hover-md,
+.icon-hover-sm {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    width: var(--icon-hover-size);
+    height: var(--icon-hover-size);
+    min-height: 0 !important;
+    border-radius: var(--border-radius-xs);
+    transition: var(--main-transition);
+}
+
+.icon-hover-md {
+    width: var(--icon-hover-md-size);
+    height: var(--icon-hover-md-size);
+}
+
+.icon-hover:hover,
+.icon-hover-md:hover,
+.icon-hover-sm:hover {
+    cursor: pointer;
+    background-color: var(--icon-hover-color-light);
+}
+
+/* btn width */
+.btn-width-xxl {
+    min-width: var(--btn-max-width-xxl);
+    max-width: var(--btn-max-width-xxl);
+}
+
+.btn-width-xl {
+    max-width: var(--btn-max-width-xl);
+    min-width: var(--btn-max-width-xl);
+}
+
+.btn-width-lg {
+    max-width: var(--btn-max-width-lg);
+    min-width: var(--btn-max-width-lg);
+}
+
+.btn-width-md {
+    max-width: var(--btn-max-width-md);
+    min-width: var(--btn-max-width-md);
+}
+
+.btn-width-sm {
+    max-width: var(--btn-max-width-sm);
+    min-width: var(--btn-max-width-sm);
+}
+
+.btn-width-xs {
+    max-width: var(--btn-max-width-xs);
+    min-width: var(--btn-max-width-xs);
+}
+
+/* btn height */
+.btn-height-lg {
+    line-height: var(--btn-height-lg);
+}
+
+.btn-height-md {
+    line-height: var(--btn-height-md);
+}
+
+.btn-height-sm {
+    line-height: var(--btn-height-sm);
+}
+
+/* specific btn types */
+.btn-primary,
+.btn-primary:focus {
+    color: var(--btn-primary-text);
+    background: var(--primary-color);
+    border: var(--border-width) var(--border-solid) var(--primary-color);
+}
+
+.btn-primary:hover,
+.btn-primary-ghost:hover {
+    color: var(--btn-primary-text-hover);
+    background: var(--primary-color-darker);
+    border: var(--border-width) var(--border-solid) var(--primary-color-darker);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-primary-ghost,
+.btn-primary-ghost:focus {
+    background: var(--btn-ghost-background);
+    color: var(--btn-dropdown-color);
+    border: var(--border-width) var(--border-solid) var(--primary-color);
+}
+
+.btn-primary-ghost:hover {
+    border-width: var(--border-width-md);
+    text-decoration: none;
+}
+
+.btn-cancel-ghost,
+.btn-cancel-ghost:focus {
+    color: var(--btn-cancel-ghost-text);
+    background: transparent;
+    /*margin-right: var(--margin-sm);*/
+    border: var(--border-width) var(--border-solid) var(--border-color);
+}
+
+.CancelClosePopup.btn-cancel-ghost,
+.UndoClosePopup.btn-cancel-ghost,
+.ClosePopup.btn-cancel-ghost ,
+.GoBack.btn-cancel-ghost {
+    background: transparent;
+    margin: 0;
+}
+
+.btn-cancel-ghost:hover {
+    color: var(--btn-cancel-ghost-text);
+    background: var(--btn-cancel-ghost-bg-hover);
+    border: var(--border-width) var(--border-solid) var(--border-color);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+.btn-reset-ghost,
+.btn-reset-ghost:focus {
+    color: var(--btn-cancel-ghost-text);
+    background: var(--btn-cancel-ghost-bg);
+    /*margin-right: var(--margin-sm);*/
+    border: var(--border-width) var(--border-solid) var(--border-color);
+}
+
+.CancelClosePopup.btn-reset-ghost,
+.UndoClosePopup.btn-reset-ghost,
+.ClosePopup.btn-reset-ghost ,
+.GoBack.btn-reset-ghost {
+    background: transparent;
+    margin: 0;
+}
+
+.btn-reset-ghost:hover {
+    color: var(--btn-cancel-ghost-text);
+    background: var(--btn-cancel-ghost-bg-hover);
+    border: var(--border-width) var(--border-solid) var(--border-color);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+button.btn-ghost-sm,
+button.btn-ghost-sm:focus {
+    font-weight: var(--semi-bold);
+    background: transparent;
+    width: auto;
+    padding: 0 var(--size-10);
+    border: var(--border-width) var(--border-solid) var(--primary-color);
+    border-radius: var(--border-radius-sm);
+    min-height: var(--btn-min-height-sm);
+    color: var(--primary-color);
+    transition: var(--main-transition);
+}
+
+button.btn-ghost-sm:hover {
+    background: var(--primary-color-darker);
+    border: var(--border-width) var(--border-solid) var(--primary-color-darker);
+}
+
+button.btn-ghost-sm span {
+    color: var(--primary-color);
+    padding: 0;
+    min-height: auto;
+    font-size: var(--font-size-xs);
+}
+
+button.btn-ghost-sm:hover span {
+    color: var(--white);
+}
+
+.ticket-form-options .Field {
+    flex-direction: row;
+}
+
+.ticket-form-options a {
+    border: none;
+    padding: 0;
+    padding-right: var(--padding-sm);
+    border-radius: var(--border-radius-sm);
+    /*color: var(--btn-text-color-ghost);*/
+}
+
+.ticket-form-options a:hover {
+    text-decoration: underline;
+}
+
+.btn-secondary-ghost,
+.Field > a.btn-secondary-ghost,
+a.btn-secondary-ghost {
+    display: inline-block;
+    font-weight: var(--semi-bold);
+    background: transparent;
+    width: 100%;
+    /*max-width: var(--btn-width-l);*/
+    border: var(--border-width) var(--border-solid) var(--border-color);
+    border-radius: var(--border-radius-sm);
+    min-height: var(--btn-min-height);
+    text-align: center;
+    line-height: var(--btn-min-height);
+    transition: var(--main-transition);
+    color: var(--gray-dark);
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    box-sizing: border-box;
+}
+
+.btn-secondary-ghost:hover,
+.Field > a.btn-secondary-ghost:hover,
+a.btn-secondary-ghost:hover {
+    background: var(--border-color);
+}
+
+
+.AddButton:not(.btn-main),
+.RemoveButton:not(.btn-main) {
+    color: var(--black);
+    font-size: var(--main-font-size);
+    vertical-align: middle;
+    align-self: auto;
+}
+
+.ValueRemove i, .AddValue i, .AddButton i, .RemoveButton i {
+    font-weight: var(--normal);
+    font-size: var(--font-size-md);
+    color: var(--gray-dark-semi);
+    width: 14px;
+    height: 14px;
+}

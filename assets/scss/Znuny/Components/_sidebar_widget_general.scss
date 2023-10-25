@@ -1,0 +1,141 @@
+/**
+* @subsection  |  Search Menu Widget
+*/
+
+.WidgetSimple {
+    width: 100%;
+    max-width: 300px;
+    position: relative;
+    margin-bottom: var(--widget-margin);
+    background: var(--widget-simple-bg);
+    box-shadow: none;
+    margin-right: 0;
+    transition: var(--main-transition);
+    border: var(--border-width) var(--border-solid) var(--border-color);
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+    border-color: var(--border-color);
+}
+
+/*
+* Header
+*/
+
+.WidgetSimple .Header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    border-bottom: var(--border-width) var(--border-solid) var(--border-color);
+    padding: var(--padding-md);
+    background-color: var(--sidebarcolumn-header-bg);
+    border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0;
+}
+
+.WidgetSimple.Collapsed .Header {
+    background: var(--main-bg-color);
+}
+
+.WidgetSimple.Expanded .Header {
+    border-bottom: var(--border-width) var(--border-solid) var(--border-color);
+    background-color: var(--sidebarcolumn-header-bg);
+}
+
+.WidgetSimple.Expanded > .Header > .WidgetAction.Toggle {
+    width: auto;
+    margin: 0;
+    float: initial;
+    position: absolute;
+    top: 0;
+    min-width: 100%;
+    height: 100%;
+    left: 0;
+    background-position: 0 -26px;
+    z-index: 1;
+    transition: var(--main-transition);
+}
+
+.WidgetAction.Toggle a {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+    font-size: var(--font-size-md);
+}
+
+.Expanded > .Header > .WidgetAction.Toggle i.fa-caret-down {
+    transform: rotate(180deg);
+}
+
+.WidgetAction.Toggle i {
+    display: flex !important;
+    position: relative;
+    font-size: var(--font-size-lg);
+    left: initial;
+    right: initial;
+    top: initial;
+    color: var(--gray-dark) !important;
+    transition: var(--main-transition);
+    margin: 0;
+}
+
+.WidgetSimple > .Header h2,
+.WidgetSimple > .Header h3 {
+    display: inline;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: var(--widget-simple-title-size);
+    font-weight: var(--semi-bold);
+    text-shadow: none;
+    color: var(--black);
+    line-height: 120%;
+    z-index: 1;
+}
+
+/*
+* Content
+*/
+
+.WidgetSimple > .Content {
+    transition: var(--main-transition);
+    padding: var(--padding-md);
+    min-height: 0;
+    border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
+    overflow: auto;
+    position: relative;
+    z-index: 5;
+    overflow: hidden;
+}
+
+.WidgetSimple > .Content ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-md);
+}
+
+.WidgetSimple > .Content ul li {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--gap-sm);
+    word-wrap: break-word;
+    flex-wrap: wrap;
+}
+
+.WidgetSimple > .Content ul li label {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--gap-sm);
+}
