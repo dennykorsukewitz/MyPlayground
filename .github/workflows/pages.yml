@@ -38,45 +38,10 @@ jobs:
           # If using the 'assets' git submodule from Chirpy Starter, uncomment above
           # (See: https://github.com/cotes2020/chirpy-starter/tree/main/assets)
 
-      - name: Check out dennykorsukewitz.github.io
-        uses: actions/checkout@v3
-        env:
-          fetch-depth: "1"
-        with:
-          repository: dennykorsukewitz/dennykorsukewitz.github.io
-          ref: dev-update # dev'
-          path: pages
-
-      - name: Prepare config
-        run: cd "${GITHUB_WORKSPACE}"/pages/ && touch lol.txt
-
-      - name: Prepare config
-        run: cp -R "${GITHUB_WORKSPACE}"/pages/* "${GITHUB_WORKSPACE}"/repository
-
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v1
-
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          working-directory: repository
-          ruby-version: 3   # reads from a '.ruby-version' or '.tools-version' file if 'ruby-version' is omitted
-          bundler-cache: true
-
-      - name: Build site
-        run: cd "${GITHUB_WORKSPACE}/repository" && bundle exec jekyll build --source "${GITHUB_WORKSPACE}/repository/" --destination "_site${{ steps.pages.outputs.base_path }}"
-        env:
-          JEKYLL_ENV: "production"
-
-      # - name: Test site
-      #   run: |
-      #     cd "${GITHUB_WORKSPACE}/repository" && bundle exec htmlproofer _site --disable-external --check-html --allow_hash_href
-
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: "repository/_site${{ steps.pages.outputs.base_path }}"
+          path: "repository/${{ steps.pages.outputs.base_path }}"
 
   Deploy:
     environment:
