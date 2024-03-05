@@ -12,7 +12,7 @@ jobs:
       - name: Upload file 1
         uses: actions/upload-artifact@v2
         with:
-          name: my-artifact
+          name: metrics
           path: file1.txt
 
       - name: Create file 2
@@ -20,7 +20,7 @@ jobs:
       - name: Upload file 2
         uses: actions/upload-artifact@v2
         with:
-          name: my-artifact
+          name: metrics
           path: file2.txt
 
   download-and-commit:
@@ -30,16 +30,9 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v2
         with:
-          name: my-artifact
+          name: metrics
 
-      - name: Combine files
-        run: |
-          cat file1.txt file2.txt > combined.txt
-
-      - name: Commit and push
-        run: |
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Action"
-          git add .
-          git commit -m "Combined files"
-          git push
+      - name: Add and Commit
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: "Updated Metrics: Data."
