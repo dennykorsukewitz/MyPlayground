@@ -48,6 +48,9 @@ jobs:
         run: |
           mapfile -t WORKFLOW_IDs < <(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/actions/workflows | jq '.workflows[] | select(.name=="${{ inputs.WORKFLOW_NAME }}" // true) | .id')
           echo "WORKFLOW_IDS=$(printf '%s,' "${WORKFLOW_IDs[@]}") >> $GITHUB_OUTPUT"
+
+          echo $(printf '%s,' "${WORKFLOW_IDs[@]}")
+
           # echo "::set-output name=workflow_ids::$(printf '%s,' "${WORKFLOW_IDs[@]}")"
 
           echo "---"
