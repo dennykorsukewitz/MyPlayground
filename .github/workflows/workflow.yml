@@ -152,7 +152,7 @@ jobs:
           for WORKFLOW_ID in "${WORKFLOW_IDS[@]}"; do
             echo -e "Workflow ID: $WORKFLOW_ID\n"
 
-            RUN_IDS=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/actions/workflows/"$WORKFLOW_ID"/runs --paginate | jq -r '.workflow_runs[] | .id')
+            RUN_IDS=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/actions/workflows/"$WORKFLOW_ID"/runs --paginate | jq -r '.workflow_runs[] | select(.conclusion!=null) | .id')
 
             for RUN_ID in $RUN_IDS; do
               gh api -X DELETE /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/actions/runs/"$RUN_ID" --silent
@@ -182,7 +182,7 @@ jobs:
           for WORKFLOW_ID in "${WORKFLOW_IDS[@]}"; do
             echo -e "Workflow ID: $WORKFLOW_ID\n"
 
-            FAILED_RUN_IDS=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/actions/workflows/"$WORKFLOW_ID"/runs --paginate | jq -r '.workflow_runs[] | select(.conclusion=="failure") | .id')
+            FAILED_RUN_IDS=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/actions/workflows/"$WORKFLOW_ID"/runs --paginate | jq -r '.workflow_runs[] | select(.conclusion=="failure" and .conclusion!=null) | .id')
 
             for RUN_ID in $FAILED_RUN_IDS; do
               gh api -X DELETE /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/actions/runs/"$RUN_ID" --silent
