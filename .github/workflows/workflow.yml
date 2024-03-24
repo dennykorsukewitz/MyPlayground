@@ -66,7 +66,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          IFS=',' read -ra WORKFLOW_IDS <<< "${{ needs.Get_Workflow_IDs.outputs.workflow_ids }}"
+          IFS=',' read -ra WORKFLOW_IDS <<< "${{ needs.Get_Workflow_IDs.outputs.WORKFLOW_IDS }}"
 
           echo "---"
           echo "Running Workflows:"
