@@ -96,9 +96,9 @@ jobs:
       - name: List All Workflow Runs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # WORKFLOW_IDS: ${{needs.Get_Workflow_IDs.outputs.WORKFLOW_IDS}}
+          WORKFLOW_IDS: ${{needs.Get_Workflow_IDs.outputs.WORKFLOW_IDS}}
         run: |
-          IFS=',' read -ra WORKFLOW_IDS <<< "${{ needs.Get_Workflow_IDs.outputs.WORKFLOW_IDS }}"
+          IFS=',' read -ra WORKFLOW_IDS2 <<< "${{ needs.Get_Workflow_IDs.outputs.WORKFLOW_IDS }}"
 
           echo "$WORKFLOW_IDS"
           echo "$WORKFLOW_IDS2"
