@@ -47,12 +47,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           mapfile -t WORKFLOW_IDs < <(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/actions/workflows | jq '.workflows[] | select(.name=="${{ inputs.WORKFLOW_NAME }}" // true) | .id')
-          echo "WORKFLOW_IDS=$(printf '%s,' ${WORKFLOW_IDs[@]}) >> $GITHUB_OUTPUT"
-
-          echo $(printf '%s,' "${WORKFLOW_IDs[@]}")
-          echo $WORKFLOW_IDS
-
-          # echo "::set-output name=workflow_ids::$(printf '%s,' "${WORKFLOW_IDs[@]}")"
+          echo "::set-output name=WORKFLOW_IDS::$(printf '%s,' "${WORKFLOW_IDs[@]}")"
 
           echo "---"
           echo "Repository: ${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}"
@@ -70,7 +65,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          IFS=',' read -ra WORKFLOW_IDS <<< "${{ needs.Get_Workflow_IDs.outputs.workflow_ids }}"
+          IFS=',' read -ra WORKFLOW_IDS <<< "${{ needs.Get_Workflow_IDs.outputs.WORKFLOW_IDS }}"
 
           echo "---"
           echo "Running Workflows:"
@@ -97,14 +92,8 @@ jobs:
       - name: List All Workflow Runs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WORKFLOW_IDS: ${{ needs.Get_Workflow_IDs.outputs.WORKFLOW_IDS }}
         run: |
-          IFS=',' read -ra WORKFLOW_IDS2 <<< "${{ needs.Get_Workflow_IDs.outputs.WORKFLOW_IDS }}"
-
-          echo "WORKFLOW_IDS:"
-          echo "$WORKFLOW_IDS"
-          echo "WORKFLOW_IDS2:"
-          echo "$WORKFLOW_IDS2"
+          IFS=',' read -ra WORKFLOW_IDS <<< "${{ needs.Get_Workflow_IDs.outputs.WORKFLOW_IDS }}"
 
           echo "---"
           echo "All Workflow Runs:"
@@ -129,7 +118,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          IFS=',' read -ra WORKFLOW_IDS <<< "${{ needs.Get_Workflow_IDs.outputs.workflow_ids }}"
+          IFS=',' read -ra WORKFLOW_IDS <<< "${{ needs.Get_Workflow_IDs.outputs.WORKFLOW_IDS }}"
 
           echo "---"
           echo "Failed Workflow Runs:"
@@ -154,7 +143,7 @@ jobs:
     steps:
       - name: Delete All Workflow Runs
         run: |
-          IFS=',' read -ra WORKFLOW_IDS <<< "${{ needs.Get_Workflow_IDs.outputs.workflow_ids }}"
+          IFS=',' read -ra WORKFLOW_IDS <<< "${{ needs.Get_Workflow_IDs.outputs.WORKFLOW_IDS }}"
 
           echo "---"
           echo "Deleting All Workflow Runs:"
@@ -184,7 +173,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          IFS=',' read -ra WORKFLOW_IDS <<< "${{ needs.Get_Workflow_IDs.outputs.workflow_ids }}"
+          IFS=',' read -ra WORKFLOW_IDS <<< "${{ needs.Get_Workflow_IDs.outputs.WORKFLOW_IDS }}"
 
           echo "---"
           echo "Deleting Failed Workflow Runs:"
