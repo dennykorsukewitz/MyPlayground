@@ -25,8 +25,8 @@ on:
         required: true
         type: string
         default: "dennykorsukewitz"
-      WORKFLOW_NAME:
-        description: "Workflow, if not specified all workflows will be used."
+      WORKFLOW:
+        description: "Workflow (mame), if not specified all workflows will be used."
         required: false
         type: string
 
@@ -46,12 +46,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          mapfile -t WORKFLOW_IDs < <(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/actions/workflows | jq '.workflows[] | select(.name=="${{ inputs.WORKFLOW_NAME }}" // true) | .id')
+          mapfile -t WORKFLOW_IDs < <(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/actions/workflows | jq '.workflows[] | select(.name=="${{ inputs.WORKFLOW }}" // true) | .id')
           echo "::set-output name=WORKFLOW_IDS::$(printf '%s,' "${WORKFLOW_IDs[@]}")"
 
           echo "---"
           echo "Repository: ${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}"
-          echo "Workflow Name: ${{ inputs.WORKFLOW_NAME }}"
+          echo "Workflow Name: ${{ inputs.WORKFLOW }}"
           echo "Workflow IDs: ${WORKFLOW_IDs[@]}"
           echo "---"
 
@@ -159,7 +159,7 @@ jobs:
               echo "Failed run $RUN_ID deleted."
             done
 
-            echo "All runs for Workflow $WORKFLOW_ID deleted."
+            echo -e "\nAll runs for Workflow $WORKFLOW_ID deleted."
             echo "---"
           done
 
@@ -189,6 +189,6 @@ jobs:
               echo "Failed run $RUN_ID deleted."
             done
 
-            echo "All failed runs for Workflow $WORKFLOW_ID deleted."
+            echo -e "\nAll failed runs for Workflow $WORKFLOW_ID deleted."
             echo "---"
           done
