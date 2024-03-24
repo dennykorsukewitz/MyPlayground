@@ -10,7 +10,7 @@ jobs:
       - name: Create file 1
         run: echo "File 1 content" > file1.txt
       - name: Upload file 1
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: metrics
           path: file1.txt
@@ -18,7 +18,7 @@ jobs:
       - name: Create file 2
         run: echo "File 2 content" > file2.txt
       - name: Upload file 2
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: metrics
           path: file2.txt
