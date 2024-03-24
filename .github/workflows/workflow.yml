@@ -1,5 +1,5 @@
 ---
-name: Workflow
+name: Manage Workflow Runs
 
 on:
   workflow_dispatch:
@@ -47,12 +47,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           mapfile -t WORKFLOW_IDs < <(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/actions/workflows | jq '.workflows[] | select(.name=="${{ inputs.WORKFLOW_NAME }}" // true) | .id')
-          echo "::set-output name=workflow_ids::$(printf '%s,' "${WORKFLOW_IDs[@]}")"
+          echo "WORKFLOW_IDS=$(printf '%s,' "${WORKFLOW_IDs[@]}") >> $GITHUB_ENV"
 
           echo "---"
           echo "Repository: ${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}"
           echo "Workflow Name: ${{ inputs.WORKFLOW_NAME }}"
           echo "Workflow IDs: ${WORKFLOW_IDs[@]}"
+          echo "---"
 
   Run:
     name: Run Workflow
