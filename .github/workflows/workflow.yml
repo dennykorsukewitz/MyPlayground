@@ -109,7 +109,7 @@ jobs:
           for WORKFLOW_ID in "${WORKFLOW_IDS[@]}"; do
             echo -e "Workflow ID: $WORKFLOW_ID\n"
 
-            RUNS=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/actions/workflows/"$WORKFLOW_ID"/runs --paginate | jq -r '.workflow_runs[] | "\nID: \(.id)\nName: \(.name)\nStatus: \(.status)\nConclusion: \(.conclusion)\nCreated at: \(.created_at)\n"')
+            RUNS=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/actions/workflows/"$WORKFLOW_ID"/runs --paginate | jq -r '.workflow_runs[] | "ID: \(.id)\nName: \(.name)\nStatus: \(.status)\nConclusion: \(.conclusion)\nCreated at: \(.created_at)\n"')
 
             echo "$RUNS"
             echo "---"
@@ -134,7 +134,7 @@ jobs:
           for WORKFLOW_ID in "${WORKFLOW_IDS[@]}"; do
             echo -e "Workflow ID: $WORKFLOW_ID\n"
 
-            FAILED_RUNS=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/actions/workflows/"$WORKFLOW_ID"/runs --paginate | jq -r '.workflow_runs[] | select(.conclusion=="failure") | "\nID: \(.id)\nName: \(.name)\nStatus: \(.status)\nConclusion: \(.conclusion)\nCreated at: \(.created_at)\n"')
+            FAILED_RUNS=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/actions/workflows/"$WORKFLOW_ID"/runs --paginate | jq -r '.workflow_runs[] | select(.conclusion=="failure") | "ID: \(.id)\nName: \(.name)\nStatus: \(.status)\nConclusion: \(.conclusion)\nCreated at: \(.created_at)\n"')
 
             echo "$FAILED_RUNS"
             echo "---"
