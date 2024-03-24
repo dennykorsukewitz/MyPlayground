@@ -48,6 +48,7 @@ jobs:
         run: |
           mapfile -t WORKFLOW_IDs < <(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/actions/workflows | jq '.workflows[] | select(.name=="${{ inputs.WORKFLOW_NAME }}" // true) | .id')
           echo "WORKFLOW_IDS=$(printf '%s,' "${WORKFLOW_IDs[@]}") >> $GITHUB_ENV"
+          echo "::set-output name=workflow_ids::$(printf '%s,' "${WORKFLOW_IDs[@]}")"
 
           echo "---"
           echo "Repository: ${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}"
@@ -69,6 +70,7 @@ jobs:
 
           echo "---"
           echo "Running Workflows:"
+          echo "---"
 
           for WORKFLOW_ID in "${WORKFLOW_IDS[@]}"; do
             echo "Workflow ID: $WORKFLOW_ID\n"
@@ -92,7 +94,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          IFS=',' read -ra WORKFLOW_IDS <<< "${{ needs.Get_Workflow_IDs.outputs.workflow_ids }}"
+          IFS=',' read -ra WORKFLOW_IDS2 <<< "${{ needs.Get_Workflow_IDs.outputs.workflow_ids }}"
+          echo "$WORKFLOW_IDS"
+          echo "$WORKFLOW_IDS2"
 
           echo "---"
           echo "All Workflow Runs:"
