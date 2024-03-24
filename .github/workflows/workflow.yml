@@ -70,7 +70,7 @@ jobs:
           echo "Running Workflows:"
 
           for WORKFLOW_ID in "${WORKFLOW_IDS[@]}"; do
-            echo "Workflow ID: $WORKFLOW_ID"
+            echo "Workflow ID: $WORKFLOW_ID\n"
 
             curl -X POST \
               -H "Accept: application/vnd.github.v3+json" \
@@ -95,9 +95,10 @@ jobs:
 
           echo "---"
           echo "All Workflow Runs:"
+          echo "---"
 
           for WORKFLOW_ID in "${WORKFLOW_IDS[@]}"; do
-            echo "Workflow ID: $WORKFLOW_ID"
+            echo "Workflow ID: $WORKFLOW_ID\n"
 
             RUNS=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/actions/workflows/"$WORKFLOW_ID"/runs --paginate | jq -r '.workflow_runs[] | "ID: \(.id)\nName: \(.name)\nStatus: \(.status)\nConclusion: \(.conclusion)\nCreated at: \(.created_at)\n"')
 
@@ -119,9 +120,10 @@ jobs:
 
           echo "---"
           echo "Failed Workflow Runs:"
+          echo "---"
 
           for WORKFLOW_ID in "${WORKFLOW_IDS[@]}"; do
-            echo "Workflow ID: $WORKFLOW_ID"
+            echo "Workflow ID: $WORKFLOW_ID\n"
 
             FAILED_RUNS=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/actions/workflows/"$WORKFLOW_ID"/runs --paginate | jq -r '.workflow_runs[] | select(.conclusion=="failure") | "ID: \(.id)\nName: \(.name)\nStatus: \(.status)\nConclusion: \(.conclusion)\nCreated at: \(.created_at)\n"')
 
@@ -142,10 +144,11 @@ jobs:
           IFS=',' read -ra WORKFLOW_IDS <<< "${{ needs.Get_Workflow_IDs.outputs.workflow_ids }}"
 
           echo "---"
-          echo "Deleting all workflow runs:"
+          echo "Deleting All Workflow Runs:"
+          echo "---"
 
           for WORKFLOW_ID in "${WORKFLOW_IDS[@]}"; do
-            echo "Workflow ID: $WORKFLOW_ID"
+            echo "Workflow ID: $WORKFLOW_ID\n"
 
             RUN_IDS=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/actions/workflows/"$WORKFLOW_ID"/runs --paginate | jq -r '.workflow_runs[] | .id')
 
@@ -172,9 +175,10 @@ jobs:
 
           echo "---"
           echo "Deleting Failed Workflow Runs:"
+          echo "---"
 
           for WORKFLOW_ID in "${WORKFLOW_IDS[@]}"; do
-            echo "Workflow ID: $WORKFLOW_ID"
+            echo "Workflow ID: $WORKFLOW_ID\n"
 
             FAILED_RUN_IDS=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/actions/workflows/"$WORKFLOW_ID"/runs --paginate | jq -r '.workflow_runs[] | select(.conclusion=="failure") | .id')
 
