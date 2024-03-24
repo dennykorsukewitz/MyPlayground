@@ -46,7 +46,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          mapfile -t WORKFLOW_IDs < <(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/actions/workflows | jq '.workflows[] | select(.name=="${{ inputs.WORKFLOW }}" // true) | .id')
+
+          if [ "${{ inputs.WORKFLOW }}" = "" ]; then
+            mapfile -t WORKFLOW_IDs < <(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/actions/workflows | jq '.workflows[] | .id')
+            echo "${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}"
+          else
+            mapfile -t WORKFLOW_IDs < <(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/actions/workflows | jq '.workflows[] | select(.name=="${{ inputs.WORKFLOW }}") | .id')
+          fi
+
           echo "::set-output name=WORKFLOW_IDS::$(printf '%s,' "${WORKFLOW_IDs[@]}")"
 
           echo "---"
