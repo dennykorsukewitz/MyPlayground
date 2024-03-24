@@ -63,25 +63,21 @@ jobs:
 
 
   List_All:
-    name: List all deployments
+    name: List All Deployments
     needs: Get_Deployment_IDs
     if: ${{ github.event.inputs.FUNCTION == 'list all' }}
     runs-on: ubuntu-22.04
     env:
       GITHUB_TOKEN: ${{ secrets.PAT }}
     steps:
-      - name: List deployments
+      - name: List All Deployments
         run: |
 
-          if [ "${{ inputs.ENVIRONMENT }}" = "" ]; then
+          IFS=',' read -ra DEPLOYMENT_IDS <<< "${{ needs.Get_Deployment_IDs.outputs.DEPLOYMENT_IDS }}"
 
-            mapfile -t DEPLOYMENT_IDs < <(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments | jq '.[] | .id')
-            echo "${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}"
-          else
-
-            mapfile -t DEPLOYMENT_IDs < <(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments | jq '.[] | select(.environment=="${{ inputs.ENVIRONMENT }}") | .id')
-            echo "${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}: ${{ inputs.ENVIRONMENT }}"
-          fi
+          echo "---"
+          echo "All Deployments Runs:"
+          echo "---"
 
           for DEPLOYMENT_ID in "${DEPLOYMENT_IDs[@]}"; do
             echo "DEPLOYMENT ID: $DEPLOYMENT_ID"
@@ -89,14 +85,14 @@ jobs:
           done
 
   List_Failed:
-    name: List failed deployments
+    name: List Failed Deployments
     needs: Get_Deployment_IDs
     if: ${{ github.event.inputs.FUNCTION == 'list failed' }}
     runs-on: ubuntu-22.04
     env:
       GITHUB_TOKEN: ${{ secrets.PAT }}
     steps:
-      - name: List failed deployments
+      - name: List Failed Deployments
         run: |
 
           if [ "${{ inputs.ENVIRONMENT }}" = "" ]; then
@@ -119,14 +115,14 @@ jobs:
           done
 
   Delete_All:
-    name: Delete all deployments
+    name: Delete All Deployments
     needs: Get_Deployment_IDs
     if: ${{ github.event.inputs.FUNCTION == 'delete all' }}
     runs-on: ubuntu-22.04
     env:
       GITHUB_TOKEN: ${{ secrets.PAT }}
     steps:
-      - name: Delete all deployments
+      - name: Delete All Deployments
         run: |
 
           if [ "${{ inputs.ENVIRONMENT }}" = "" ]; then
@@ -147,14 +143,14 @@ jobs:
           done
 
   Delete_Failed:
-    name: Delete failed and inactive deployments
+    name: Delete Failed And Inactive Deployments
     needs: Get_Deployment_IDs
     if: ${{ github.event.inputs.FUNCTION == 'delete failed' }}
     runs-on: ubuntu-22.04
     env:
       GITHUB_TOKEN: ${{ secrets.PAT }}
     steps:
-      - name: Delete failed and inactive deployments
+      - name: Delete Failed And Inactive Deployments
         run: |
 
           if [ "${{ inputs.ENVIRONMENT }}" = "" ]; then
