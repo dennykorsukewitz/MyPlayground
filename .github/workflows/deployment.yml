@@ -131,14 +131,23 @@ jobs:
 
           IFS=',' read -ra DEPLOYMENT_IDS <<< "${{ needs.Get_Deployment_IDs.outputs.DEPLOYMENT_IDS }}"
 
-          # This loop iterates over the `DEPLOYMENT_IDS` array in reverse order.
-          # It starts from the last index (`${#DEPLOYMENT_IDS[@]}-1`) and goes until the first index (`0`).
-          # The loop variable `i` is decremented by 1 in each iteration.
-          for ((i=${#DEPLOYMENT_IDS[@]}-1; i>=0; i--)); do
+          for DEPLOYMENT_ID in "${DEPLOYMENT_IDS[@]}"; do
             DEPLOYMENT_ID=${DEPLOYMENT_IDS[i]}
             echo -e "Deployment ID: $DEPLOYMENT_ID\n"
 
-            gh api --method DELETE -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments/"$DEPLOYMENT_ID"
+            STATUS=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments/"$DEPLOYMENT_ID" --paginate | jq '.state')
+            ENVIRONMENT=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments/"$DEPLOYMENT_ID" --paginate | jq '.environment')
+
+            if [[ $STATUS == "\"active\"" ]]; then
+              COUNT=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments --paginate | jq --arg ENVIRONMENT "$ENVIRONMENT" '.[] | select(.environment==$ENVIRONMENT) | .id' | wc -l)
+              if [[ $COUNT -eq 1 ]]; then
+                gh api --method DELETE -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments/"$DEPLOYMENT_ID"
+              else
+                echo "Cannot delete active deployment $DEPLOYMENT_ID in environment $ENVIRONMENT as it is not the only deployment."
+              fi
+            else
+              gh api --method DELETE -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments/"$DEPLOYMENT_ID"
+            fi
           done
 
   Delete_Failed:
