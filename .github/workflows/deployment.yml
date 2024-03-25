@@ -74,6 +74,13 @@ jobs:
 
           IFS=',' read -ra DEPLOYMENT_IDS <<< "${{ needs.Get_Deployment_IDs.outputs.DEPLOYMENT_IDS }}"
 
+          # delete me TODO
+          echo "---"
+          echo "Repository: ${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}"
+          echo "Environment Name: ${{ inputs.ENVIRONMENT }}"
+          echo "Deployment IDs: ${DEPLOYMENT_IDS[@]}"
+          echo "---"
+
           echo "---"
           echo "All Deployments Runs:"
           echo "---"
