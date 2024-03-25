@@ -44,13 +44,9 @@ jobs:
         run: |
 
           if [ "${{ inputs.ENVIRONMENT }}" = "" ]; then
-
             mapfile -t DEPLOYMENT_IDs < <(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments | jq '.[] | .id')
-            echo "${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}"
           else
-
             mapfile -t DEPLOYMENT_IDs < <(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments | jq '.[] | select(.environment=="${{ inputs.ENVIRONMENT }}") | .id')
-            echo "${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}: ${{ inputs.ENVIRONMENT }}"
           fi
 
           echo "::set-output name=DEPLOYMENT_IDS::$(printf '%s,' "${DEPLOYMENT_IDS[@]}")"
@@ -80,8 +76,16 @@ jobs:
           echo "---"
 
           for DEPLOYMENT_ID in "${DEPLOYMENT_IDs[@]}"; do
-            echo "DEPLOYMENT ID: $DEPLOYMENT_ID"
-            echo "STATUS ID: $STATUS_ID"
+            echo -e "Deployment ID: $DEPLOYMENT_ID\n"
+
+            DEPLOYMENT=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments/"$DEPLOYMENT_ID" --paginate | jq -r '.workflow_runs[] | "ID: \(.id)\nName: \(.name)\nEnvironment: \(.environment)\nName: \(.name)\nDescription: \(.description)Created at: \(.created_at)\n"')
+
+            # 1408607151
+            # gh api -X GET /repos/dennykorsukewitz/MyPlayground/deployments/1408607151 --paginate | jq '. | "ID: \(.id)\nName: \(.environment)\nStatus: \(.status)\nConclusion: \(.conclusion)\nCreated at: \(.created_at)\n"'
+            # gh api -X GET /repos/dennykorsukewitz/MyPlayground/deployments/1408607151 --paginate | jq '.'
+
+            echo "$DEPLOYMENT"
+            echo "---"
           done
 
   List_Failed:
