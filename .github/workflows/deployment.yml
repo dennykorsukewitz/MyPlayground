@@ -83,7 +83,7 @@ jobs:
 
             DEPLOYMENT=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments/"$DEPLOYMENT_ID" --paginate | jq '. | "ID: \(.id)\nEnvironment: \(.environment)\nDescription: \(.description)\nCreated at: \(.created_at)\n"')
 
-            echo -e "$DEPLOYMENT"
+            echo "$DEPLOYMENT"
             echo "---"
           done
 
@@ -113,7 +113,7 @@ jobs:
               DEPLOYMENT=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments/"$DEPLOYMENT_ID" --paginate | jq '. | "ID: \(.id)\nEnvironment: \(.environment)\nDescription: \(.description)\nCreated at: \(.created_at)\n"')
 
               echo "STATUS ID: $STATUS_ID"
-              echo -e "$DEPLOYMENT"
+              echo "$DEPLOYMENT"
               echo "---"
             fi
           done
@@ -131,7 +131,13 @@ jobs:
 
           IFS=',' read -ra DEPLOYMENT_IDS <<< "${{ needs.Get_Deployment_IDs.outputs.DEPLOYMENT_IDS }}"
 
-          for DEPLOYMENT_ID in "${DEPLOYMENT_IDS[@]}"; do
+          /**
+           * This loop iterates over the `DEPLOYMENT_IDS` array in reverse order.
+           * It starts from the last index (`${#DEPLOYMENT_IDS[@]}-1`) and goes until the first index (`0`).
+           * The loop variable `i` is decremented by 1 in each iteration.
+           */
+          for ((i=${#DEPLOYMENT_IDS[@]}-1; i>=0; i--)); do
+            DEPLOYMENT_ID=${DEPLOYMENT_IDS[i]}
             echo -e "Deployment ID: $DEPLOYMENT_ID\n"
 
             gh api --method DELETE -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments/"$DEPLOYMENT_ID"
