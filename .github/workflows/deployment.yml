@@ -40,7 +40,7 @@ jobs:
     outputs:
       DEPLOYMENT_IDS: ${{ steps.get_ids.outputs.DEPLOYMENT_IDS }}
     env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.PAT }}
     steps:
       - name: Get Deployment IDs
         id: get_ids
