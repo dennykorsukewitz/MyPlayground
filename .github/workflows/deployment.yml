@@ -80,8 +80,11 @@ jobs:
           for DEPLOYMENT_ID in "${DEPLOYMENT_IDS[@]}"; do
             echo -e "Deployment ID: $DEPLOYMENT_ID\n"
 
-            DEPLOYMENT=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments/"$DEPLOYMENT_ID" --paginate | jq '. | "ID: \(.id)\nEnvironment: \(.environment)\nDescription: \(.description)\nCreated at: \(.created_at)\n"')
+            STATUS=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments/"$DEPLOYMENT_ID"/statuses | jq '.[0] | .state')
 
+            DEPLOYMENT=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments/"$DEPLOYMENT_ID" --paginate | jq '. | "ID: \(.id)\nEnvironment: \(.environment)\nDescription: \(.description)\nCreated at: \(.created_at)\n"' | sed 's/"//g')
+
+            echo "Status: $STATUS"
             echo -e "$DEPLOYMENT"
             echo "---"
           done
@@ -108,13 +111,10 @@ jobs:
 
             STATUS=$(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments/"$DEPLOYMENT_ID"/statuses | jq '.[0] | select(.state=="failure" or .state=="inactive" or .state=="error") | .state')
 
+            DEPLOYMENT=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments/"$DEPLOYMENT_ID" --paginate | jq '. | "ID: \(.id)\nEnvironment: \(.environment)\nDescription: \(.description)\nCreated at: \(.created_at)\n"' | sed 's/"//g')
+
             echo "Status: $STATUS"
-
-            if [ -n "$STATUS" ]; then
-              DEPLOYMENT=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments/"$DEPLOYMENT_ID" --paginate | jq '. | "ID: \(.id)\nEnvironment: \(.environment)\nDescription: \(.description)\nCreated at: \(.created_at)\n"')
-
-              echo -e "$DEPLOYMENT"
-            fi
+            echo -e "$DEPLOYMENT"
             echo "---"
           done
 
