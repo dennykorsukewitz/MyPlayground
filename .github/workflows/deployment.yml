@@ -30,8 +30,7 @@ on:
         type: string
 
 permissions:
-  actions: write
-  contents: write
+  deployments: write
 
 jobs:
   Get_Deployment_IDs:
@@ -114,10 +113,9 @@ jobs:
             if [ -n "$STATUS" ]; then
               DEPLOYMENT=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments/"$DEPLOYMENT_ID" --paginate | jq '. | "ID: \(.id)\nEnvironment: \(.environment)\nDescription: \(.description)\nCreated at: \(.created_at)\n"')
 
-              echo "STATUS ID: $STATUS_ID"
               echo -e "$DEPLOYMENT"
-              echo "---"
             fi
+            echo "---"
           done
 
   Delete_All:
