@@ -135,11 +135,15 @@ jobs:
             DEPLOYMENT_ID=${DEPLOYMENT_IDS[i]}
             echo -e "Deployment ID: $DEPLOYMENT_ID\n"
 
-            STATUS=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments/"$DEPLOYMENT_ID" --paginate | jq '.state')
+            # Mark the active deployment as inactive by adding any non-successful deployment status.
+            gh api --method POST -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments/"$DEPLOYMENT_ID"/statuses -d '{"state": "inactive"}'
+
+            STATUS=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments/"$DEPLOYMENT_ID"/statuses  --paginate | jq '.[]')
             ENVIRONMENT=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments/"$DEPLOYMENT_ID" --paginate | jq '.environment')
 
             echo "Status: $STATUS"
             echo "Environment: $ENVIRONMENT"
+
 
             if [[ $STATUS == "\"active\"" ]]; then
               COUNT=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments --paginate | jq --arg ENVIRONMENT "$ENVIRONMENT" '.[] | select(.environment==$ENVIRONMENT) | .id' | wc -l)
