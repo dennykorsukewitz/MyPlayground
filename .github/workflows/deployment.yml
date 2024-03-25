@@ -138,6 +138,9 @@ jobs:
             STATUS=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments/"$DEPLOYMENT_ID" --paginate | jq '.state')
             ENVIRONMENT=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments/"$DEPLOYMENT_ID" --paginate | jq '.environment')
 
+            echo "Status: $STATUS"
+            echo "Environment: $ENVIRONMENT"
+
             if [[ $STATUS == "\"active\"" ]]; then
               COUNT=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments --paginate | jq --arg ENVIRONMENT "$ENVIRONMENT" '.[] | select(.environment==$ENVIRONMENT) | .id' | wc -l)
               if [[ $COUNT -eq 1 ]]; then
