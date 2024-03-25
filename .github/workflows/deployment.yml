@@ -29,8 +29,11 @@ on:
         required: false
         type: string
 
-jobs:
+permissions:
+  actions: write
+  contents: write
 
+jobs:
   Get_Deployment_IDs:
     name: Get Deployment IDs
     runs-on: ubuntu-22.04
