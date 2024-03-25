@@ -49,12 +49,14 @@ jobs:
           if [ "${{ inputs.ENVIRONMENT }}" = "" ]; then
             mapfile -t DEPLOYMENT_IDs < <(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments | jq '.[] | .id')
 
-            echo "$DEPLOYMENT_IDs"
+
             echo "${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}"
+            echo "Deployment IDs: ${DEPLOYMENT_IDS[@]}"
           else
             mapfile -t DEPLOYMENT_IDs < <(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments | jq '.[] | select(.environment=="${{ inputs.ENVIRONMENT }}") | .id')
 
             echo "${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}: ${{ inputs.ENVIRONMENT }}"
+            echo "Deployment IDs: ${DEPLOYMENT_IDS[@]}"
           fi
 
           echo "::set-output name=DEPLOYMENT_IDS::$(printf '%s,' "${DEPLOYMENT_IDS[@]}")"
