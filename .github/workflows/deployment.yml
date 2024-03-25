@@ -34,7 +34,7 @@ permissions:
   contents: write
 
 jobs:
-  Get_Deployment_IDS:
+  Get_Deployment_IDs:
     name: Get Deployment IDs
     runs-on: ubuntu-22.04
     outputs:
@@ -48,15 +48,8 @@ jobs:
 
           if [ "${{ inputs.ENVIRONMENT }}" = "" ]; then
             mapfile -t DEPLOYMENT_IDS < <(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments | jq '.[] | .id')
-
-
-            echo "${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}"
-            echo "Deployment IDs: ${DEPLOYMENT_IDS[@]}"
           else
             mapfile -t DEPLOYMENT_IDS < <(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments | jq '.[] | select(.environment=="${{ inputs.ENVIRONMENT }}") | .id')
-
-            echo "${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}: ${{ inputs.ENVIRONMENT }}"
-            echo "Deployment IDs: ${DEPLOYMENT_IDS[@]}"
           fi
 
           echo "::set-output name=DEPLOYMENT_IDS::$(printf '%s,' "${DEPLOYMENT_IDS[@]}")"
@@ -70,7 +63,7 @@ jobs:
 
   List_All:
     name: List All Deployments
-    needs: Get_Deployment_IDS
+    needs: Get_Deployment_IDs
     if: ${{ github.event.inputs.FUNCTION == 'list all' }}
     runs-on: ubuntu-22.04
     env:
@@ -79,7 +72,7 @@ jobs:
       - name: List All Deployments
         run: |
 
-          IFS=',' read -ra DEPLOYMENT_IDS <<< "${{ needs.Get_Deployment_IDS.outputs.DEPLOYMENT_IDS }}"
+          IFS=',' read -ra DEPLOYMENT_IDS <<< "${{ needs.Get_Deployment_IDs.outputs.DEPLOYMENT_IDS }}"
 
           echo "---"
           echo "All Deployments Runs:"
@@ -100,7 +93,7 @@ jobs:
 
   List_Failed:
     name: List Failed Deployments
-    needs: Get_Deployment_IDS
+    needs: Get_Deployment_IDs
     if: ${{ github.event.inputs.FUNCTION == 'list failed' }}
     runs-on: ubuntu-22.04
     env:
@@ -130,7 +123,7 @@ jobs:
 
   Delete_All:
     name: Delete All Deployments
-    needs: Get_Deployment_IDS
+    needs: Get_Deployment_IDs
     if: ${{ github.event.inputs.FUNCTION == 'delete all' }}
     runs-on: ubuntu-22.04
     env:
@@ -158,7 +151,7 @@ jobs:
 
   Delete_Failed:
     name: Delete Failed And Inactive Deployments
-    needs: Get_Deployment_IDS
+    needs: Get_Deployment_IDs
     if: ${{ github.event.inputs.FUNCTION == 'delete failed' }}
     runs-on: ubuntu-22.04
     env:
