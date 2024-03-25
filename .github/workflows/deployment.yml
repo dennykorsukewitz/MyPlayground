@@ -34,7 +34,7 @@ permissions:
   contents: write
 
 jobs:
-  Get_Deployment_IDs:
+  Get_Deployment_IDS:
     name: Get Deployment IDs
     runs-on: ubuntu-22.04
     outputs:
@@ -47,13 +47,13 @@ jobs:
         run: |
 
           if [ "${{ inputs.ENVIRONMENT }}" = "" ]; then
-            mapfile -t DEPLOYMENT_IDs < <(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments | jq '.[] | .id')
+            mapfile -t DEPLOYMENT_IDS < <(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments | jq '.[] | .id')
 
 
             echo "${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}"
             echo "Deployment IDs: ${DEPLOYMENT_IDS[@]}"
           else
-            mapfile -t DEPLOYMENT_IDs < <(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments | jq '.[] | select(.environment=="${{ inputs.ENVIRONMENT }}") | .id')
+            mapfile -t DEPLOYMENT_IDS < <(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments | jq '.[] | select(.environment=="${{ inputs.ENVIRONMENT }}") | .id')
 
             echo "${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}: ${{ inputs.ENVIRONMENT }}"
             echo "Deployment IDs: ${DEPLOYMENT_IDS[@]}"
@@ -70,7 +70,7 @@ jobs:
 
   List_All:
     name: List All Deployments
-    needs: Get_Deployment_IDs
+    needs: Get_Deployment_IDS
     if: ${{ github.event.inputs.FUNCTION == 'list all' }}
     runs-on: ubuntu-22.04
     env:
@@ -79,13 +79,13 @@ jobs:
       - name: List All Deployments
         run: |
 
-          IFS=',' read -ra DEPLOYMENT_IDS <<< "${{ needs.Get_Deployment_IDs.outputs.DEPLOYMENT_IDS }}"
+          IFS=',' read -ra DEPLOYMENT_IDS <<< "${{ needs.Get_Deployment_IDS.outputs.DEPLOYMENT_IDS }}"
 
           echo "---"
           echo "All Deployments Runs:"
           echo "---"
 
-          for DEPLOYMENT_ID in "${DEPLOYMENT_IDs[@]}"; do
+          for DEPLOYMENT_ID in "${DEPLOYMENT_IDS[@]}"; do
             echo -e "Deployment ID: $DEPLOYMENT_ID\n"
 
             DEPLOYMENT=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments/"$DEPLOYMENT_ID" --paginate | jq -r '.workflow_runs[] | "ID: \(.id)\nName: \(.name)\nEnvironment: \(.environment)\nName: \(.name)\nDescription: \(.description)Created at: \(.created_at)\n"')
@@ -100,7 +100,7 @@ jobs:
 
   List_Failed:
     name: List Failed Deployments
-    needs: Get_Deployment_IDs
+    needs: Get_Deployment_IDS
     if: ${{ github.event.inputs.FUNCTION == 'list failed' }}
     runs-on: ubuntu-22.04
     env:
@@ -111,15 +111,15 @@ jobs:
 
           if [ "${{ inputs.ENVIRONMENT }}" = "" ]; then
 
-            mapfile -t DEPLOYMENT_IDs < <(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments | jq '.[] | .id')
+            mapfile -t DEPLOYMENT_IDS < <(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments | jq '.[] | .id')
             echo "${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}"
           else
 
-            mapfile -t DEPLOYMENT_IDs < <(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments | jq '.[] | select(.environment=="${{ inputs.ENVIRONMENT }}") | .id')
+            mapfile -t DEPLOYMENT_IDS < <(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments | jq '.[] | select(.environment=="${{ inputs.ENVIRONMENT }}") | .id')
             echo "${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}: ${{ inputs.ENVIRONMENT }}"
           fi
 
-          for DEPLOYMENT_ID in "${DEPLOYMENT_IDs[@]}"; do
+          for DEPLOYMENT_ID in "${DEPLOYMENT_IDS[@]}"; do
             STATUS_ID=$(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/dennykorsukewitz/Znuny-QuickDelete/deployments/"$DEPLOYMENT_ID"/statuses | jq '.[] | select(.state=="failure") | .id')
 
             if [ -n "$STATUS_ID" ]; then
@@ -130,7 +130,7 @@ jobs:
 
   Delete_All:
     name: Delete All Deployments
-    needs: Get_Deployment_IDs
+    needs: Get_Deployment_IDS
     if: ${{ github.event.inputs.FUNCTION == 'delete all' }}
     runs-on: ubuntu-22.04
     env:
@@ -141,15 +141,15 @@ jobs:
 
           if [ "${{ inputs.ENVIRONMENT }}" = "" ]; then
 
-            mapfile -t DEPLOYMENT_IDs < <(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments | jq '.[] | .id')
+            mapfile -t DEPLOYMENT_IDS < <(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments | jq '.[] | .id')
             echo "${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}"
           else
 
-            mapfile -t DEPLOYMENT_IDs < <(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments | jq '.[] | select(.environment=="${{ inputs.ENVIRONMENT }}") | .id')
+            mapfile -t DEPLOYMENT_IDS < <(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments | jq '.[] | select(.environment=="${{ inputs.ENVIRONMENT }}") | .id')
             echo "${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}: ${{ inputs.ENVIRONMENT }}"
           fi
 
-          for DEPLOYMENT_ID in "${DEPLOYMENT_IDs[@]}"; do
+          for DEPLOYMENT_ID in "${DEPLOYMENT_IDS[@]}"; do
 
             echo "DEPLOYMENT ID: $DEPLOYMENT_ID"
 
@@ -158,7 +158,7 @@ jobs:
 
   Delete_Failed:
     name: Delete Failed And Inactive Deployments
-    needs: Get_Deployment_IDs
+    needs: Get_Deployment_IDS
     if: ${{ github.event.inputs.FUNCTION == 'delete failed' }}
     runs-on: ubuntu-22.04
     env:
@@ -169,15 +169,15 @@ jobs:
 
           if [ "${{ inputs.ENVIRONMENT }}" = "" ]; then
 
-            mapfile -t DEPLOYMENT_IDs < <(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments | jq '.[] | .id')
+            mapfile -t DEPLOYMENT_IDS < <(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments | jq '.[] | .id')
             echo "${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}"
           else
 
-            mapfile -t DEPLOYMENT_IDs < <(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments | jq '.[] | select(.environment=="${{ inputs.ENVIRONMENT }}") | .id')
+            mapfile -t DEPLOYMENT_IDS < <(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments | jq '.[] | select(.environment=="${{ inputs.ENVIRONMENT }}") | .id')
             echo "${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}: ${{ inputs.ENVIRONMENT }}"
           fi
 
-          for DEPLOYMENT_ID in "${DEPLOYMENT_IDs[@]}"; do
+          for DEPLOYMENT_ID in "${DEPLOYMENT_IDS[@]}"; do
             STATUS_ID=$(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/dennykorsukewitz/Znuny-QuickDelete/deployments/"$DEPLOYMENT_ID"/statuses | jq '.[] | select(.state=="failure" or .state=="inactive") | .id')
 
             if [ -n "$STATUS_ID" ]; then
