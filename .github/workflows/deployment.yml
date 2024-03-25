@@ -124,7 +124,7 @@ jobs:
     if: ${{ github.event.inputs.FUNCTION == 'delete all' }}
     runs-on: ubuntu-22.04
     env:
-      GITHUB_TOKEN: ${{ secrets.PAT }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Delete All Deployments
         run: |
