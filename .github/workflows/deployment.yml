@@ -88,10 +88,10 @@ jobs:
           for DEPLOYMENT_ID in "${DEPLOYMENT_IDS[@]}"; do
             echo -e "Deployment ID: $DEPLOYMENT_ID\n"
 
-            DEPLOYMENT=$(gh api -X GET /repos/${{ inputs.OWNER }}/${{ inputs.REPOSITORY }}/deployments/"$DEPLOYMENT_ID" --paginate | jq -r '.workflow_runs[] | "ID: \(.id)\nName: \(.name)\nEnvironment: \(.environment)\nName: \(.name)\nDescription: \(.description)Created at: \(.created_at)\n"')
+            DEPLOYMENT=$(gh api -X GET /repos/dennykorsukewitz/MyPlayground/deployments/1408607151 --paginate | jq '. | "ID: \(.id)\nName: \(.name)\nEnvironment: \(.environment)\nName: \(.name)\nDescription: \(.description)Created at: \(.created_at)\n"')
 
             # 1408607151
-            # gh api -X GET /repos/dennykorsukewitz/MyPlayground/deployments/1408607151 --paginate | jq '. | "ID: \(.id)\nName: \(.environment)\nStatus: \(.status)\nConclusion: \(.conclusion)\nCreated at: \(.created_at)\n"'
+            # gh api -X GET /repos/dennykorsukewitz/MyPlayground/deployments/1408607151 --paginate | jq '. | "ID: \(.id)\nName: \(.name)\nEnvironment: \(.environment)\nName: \(.name)\nDescription: \(.description)Created at: \(.created_at)\n"'
             # gh api -X GET /repos/dennykorsukewitz/MyPlayground/deployments/1408607151 --paginate | jq '.'
 
             echo "$DEPLOYMENT"
