@@ -1,5 +1,6 @@
 Free Bootstrap 5 theme for project documentation
 
+
 Theme name:
 =======================================================================
 PrettyDocs
